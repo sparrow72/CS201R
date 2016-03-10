@@ -1,0 +1,32 @@
+LANGUAGE
+Esperanto
+
+MAIN MENU
+Ĉefa Menuo
+
+NEW POST
+Skribu novan afiŝon
+
+NEW POST CONTENT
+Skribu vian afiŝon
+
+NEW POST FEELING
+Kiel vi fartas?
+
+VIEW WALL
+Rigardi socialmuron
+
+VIEW FRIENDS
+Rigardi liston de amikoj
+
+ADD FRIEND
+Aldoni novan amikon
+
+WHAT IS FRIENDS NAME
+Skribu la nomon de via nova amiko
+
+LOG OUT
+Elsaluti
+
+MOOD
+Humoro

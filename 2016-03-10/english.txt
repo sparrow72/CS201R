@@ -1,0 +1,32 @@
+LANGUAGE
+English
+
+MAIN MENU
+Main Menu
+
+NEW POST
+Write new post
+
+NEW POST CONTENT
+Enter your new post
+
+NEW POST FEELING
+What are you currently feeling?
+
+VIEW WALL
+View activity wall
+
+VIEW FRIENDS
+View friend list
+
+ADD FRIEND
+Add new friend
+
+WHAT IS FRIENDS NAME
+Enter the name of your new friend
+
+LOG OUT
+Log out
+
+MOOD
+Mood

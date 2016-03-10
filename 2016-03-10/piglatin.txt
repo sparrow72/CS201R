@@ -1,0 +1,32 @@
+LANGUAGE
+Igpay Atinlay
+
+MAIN MENU
+Ainmay Enumay
+
+NEW POST
+itewray ewnay ostpay
+
+NEW POST CONTENT
+Enteryay youryay ewnay ostpay
+
+NEW POST FEELING
+atwhay areyay youyay urrentlycay eelingfay?
+
+VIEW WALL
+iewvay activityyay allway
+
+VIEW FRIENDS
+iewvay iendfray istlay
+
+ADD FRIEND
+Addyay ewnay iendfray
+
+WHAT IS FRIENDS NAME
+Addyayyay ewnayyay iendfrayyay
+
+LOG OUT
+oglay outyay
+
+MOOD
+Oodmay
