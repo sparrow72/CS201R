@@ -1,3 +1,12 @@
 I updated this line
 and this line
+<<<<<<< HEAD
 this is cool!
+=======
+<<<<<<< HEAD
+I will add this line.
+=======
+
+asdfasdfasdfasdfasdf
+>>>>>>> origin/master
+>>>>>>> origin/master
