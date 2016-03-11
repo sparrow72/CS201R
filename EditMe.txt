@@ -1,8 +1,12 @@
 I updated this line
 and this line
 <<<<<<< HEAD
+<<<<<<< HEAD
 changes
 asdfasdfasdfasdfasdf
+=======
+new line
+>>>>>>> 55865c5fbfa8624eeb5f357c78fecc8c04948be6
 =======
 <<<<<<< HEAD
 I will add this line.
