@@ -2,7 +2,11 @@ I updated this line
 and this line
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+this is cool!
+=======
 new line -_-
+>>>>>>> 7d3f5160735e855a04425438c3592ddee1e30499
 =======
 <<<<<<< HEAD
 changes
@@ -10,7 +14,11 @@ asdfasdfasdfasdfasdf
 =======
 new line
 >>>>>>> 55865c5fbfa8624eeb5f357c78fecc8c04948be6
+<<<<<<< HEAD
+>>>>>>> 4e4384d1832c7a0da183056fb9faa91e7ce62584
+=======
 >>>>>>> origin/master
+>>>>>>> 7d3f5160735e855a04425438c3592ddee1e30499
 =======
 <<<<<<< HEAD
 I will add this line.
