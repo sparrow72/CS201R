@@ -1,7 +1,16 @@
 I updated this line
 and this line
 <<<<<<< HEAD
+<<<<<<< HEAD
 this is cool!
+=======
+<<<<<<< HEAD
+changes
+asdfasdfasdfasdfasdf
+=======
+new line
+>>>>>>> 55865c5fbfa8624eeb5f357c78fecc8c04948be6
+>>>>>>> 4e4384d1832c7a0da183056fb9faa91e7ce62584
 =======
 <<<<<<< HEAD
 I will add this line.
