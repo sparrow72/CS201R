@@ -11,3 +11,16 @@ Post& Person::operator[](const int index)
 {
 	return posts[index];
 }
+
+void Person::newPost(vector<Post>& wall) {
+	Post npost;
+
+	cout << "What is your mood? ";
+	cin >> npost.mood;
+	cout << endl;
+	cout << "Post: ";
+	getline(cin, npost.content);
+	npost.date = "3.10.16";
+	npost.author = name;
+
+}
