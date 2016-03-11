@@ -31,8 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CreateAccount.hpp" />
+		<Unit filename="DisplayUsers.hpp" />
 		<Unit filename="Localization.cpp" />
 		<Unit filename="Localization.hpp" />
+		<Unit filename="Login.hpp" />
+		<Unit filename="Menu.hpp" />
+		<Unit filename="NewUser.hpp" />
 		<Unit filename="Social.cpp" />
 		<Unit filename="Social.hpp" />
 		<Unit filename="main.cpp" />
