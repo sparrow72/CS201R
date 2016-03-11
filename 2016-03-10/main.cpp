@@ -20,11 +20,11 @@ void NewUser()
 {	
 	string UserName;
 	ofstream fout("User.txt");
-	fout.open();
+	fout.open("User.txt");
 	
 	cout << "What is your user name?" << endl;
 	cin >> UserName;
 
-	fout.app << UserName;
+	fout << UserName;
 
 }
