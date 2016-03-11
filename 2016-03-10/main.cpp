@@ -1,7 +1,12 @@
 #include <iostream>
+#include <locale>
+
 using namespace std;
 
 #include "Localization.hpp"
+void Menu1();
+void login();
+void createAcct();
 
 int main()
 {
@@ -11,6 +16,75 @@ int main()
 
 	cout << english["PROGRAM TITLE"] << endl;
 	cout << esperanto["PROGRAM TITLE"] << endl;
-
+	
 	return 0;
+
+
+
+}
+void Menu1()
+{
+	int ans;
+	bool loop = false;
+
+	do {
+		cout << "Would you like to register a new account, or log in as an existing user.?\n1. Log in\n2. Create new account\n>> ";
+		
+
+		switch (ans)
+		{
+		case 1:
+			login();
+			loop = true;
+			break;
+		case 2:
+			createAcct();
+			loop = false;
+			break;
+		default:
+			cout << "Invalid, please try again\n";
+			break;
+		}
+	} while (!loop);
+}
+
+void login()
+{
+	int count = 0;
+	string answer, pass;
+	bool loop = false;
+	locale loc;
+
+	do {
+		cout << "Username: ";
+		getline(cin, answer);
+		cout << "Password: ";
+		getline(cin, pass);
+		///set bool loop to true if they match, false if they dont match
+		
+		
+			count++;
+			if (count > 3)
+			{
+				system("cls");
+				cout << "Invalid, you have now been locked out . . .\n";
+				system("pause");
+				return;
+			}
+			else if (count == 3)
+			{
+				cout << "\nAnother invalid responce shall result in termination!\n";
+			}
+			else if (count == 2)
+			{
+				cout << "\nre-evaluating...\n";
+			}
+			else
+				cout << "Invalid, please try again\n";
+		
+	} while (!loop);
+}
+void createAcct()
+{
+
 }
