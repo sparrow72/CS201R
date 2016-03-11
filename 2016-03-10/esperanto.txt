@@ -1,0 +1,5 @@
+PROGRAM TITLE
+Sociala Muro
+
+VERSION NUMBER
+2.0
