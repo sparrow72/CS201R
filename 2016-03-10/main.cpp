@@ -35,6 +35,7 @@ int main()
 <<<<<<< HEAD
 }
 
+<<<<<<< HEAD
 
 void DisplayUsers(vector people)
 {
@@ -43,6 +44,14 @@ void DisplayUsers(vector people)
 		cout << people[i] < endl;
 	}
 }
+=======
+void Menu2(int index)
+{
+	for (int i = 0; i < index; i++)
+	{
+		cout << i + 1 << "." << "\t";
+	}
+>>>>>>> 20c2f9dee90c39b53f464c0f503c2065c1cab134
 =======
 
 
@@ -124,5 +133,10 @@ void NewUser()
 
 	fout << UserName;
 
+<<<<<<< HEAD
 }
 >>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
+=======
+>>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
+}
+>>>>>>> 20c2f9dee90c39b53f464c0f503c2065c1cab134
