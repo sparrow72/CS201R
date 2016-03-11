@@ -9,4 +9,8 @@ I will add this line.
 
 asdfasdfasdfasdfasdf
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+:^)
+>>>>>>> 4130b7fc45dda3ff518a44cdc80e7d0ef7ace1b2
