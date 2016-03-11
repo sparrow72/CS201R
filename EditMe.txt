@@ -1,7 +1,16 @@
 I updated this line
 and this line
 <<<<<<< HEAD
+<<<<<<< HEAD
 new line -_-
+=======
+<<<<<<< HEAD
+changes
+asdfasdfasdfasdfasdf
+=======
+new line
+>>>>>>> 55865c5fbfa8624eeb5f357c78fecc8c04948be6
+>>>>>>> origin/master
 =======
 <<<<<<< HEAD
 I will add this line.
