@@ -1,7 +1,7 @@
 I updated this line
 and this line
 <<<<<<< HEAD
-new line
+new line -_-
 =======
 <<<<<<< HEAD
 I will add this line.
