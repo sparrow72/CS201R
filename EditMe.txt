@@ -1,4 +1,13 @@
 I updated this line
 and this line
+<<<<<<< HEAD
 changes
 asdfasdfasdfasdfasdf
+=======
+<<<<<<< HEAD
+I will add this line.
+=======
+
+asdfasdfasdfasdfasdf
+>>>>>>> origin/master
+>>>>>>> origin/master
