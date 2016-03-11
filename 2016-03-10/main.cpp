@@ -1,6 +1,6 @@
 #include <iostream>
 #include <locale>
-
+#include <fstream>
 using namespace std;
 
 #include "Localization.hpp"
@@ -8,6 +8,7 @@ void Menu1();
 void login();
 void createAcct();
 
+void NewUser();
 int main()
 {
 	Localization english, esperanto;
@@ -18,7 +19,6 @@ int main()
 	cout << esperanto["PROGRAM TITLE"] << endl;
 	
 	return 0;
-
 
 
 }
@@ -86,5 +86,17 @@ void login()
 }
 void createAcct()
 {
+
+}
+void NewUser()
+{	
+	string UserName;
+	ofstream fout("User.txt");
+	fout.open("User.txt");
+	
+	cout << "What is your user name?" << endl;
+	cin >> UserName;
+
+	fout << UserName;
 
 }
