@@ -14,3 +14,11 @@ int main()
 
 	return 0;
 }
+
+void Menu2(int index)
+{
+	for (int i = 0; i < index; i++)
+	{
+		cout << i + 1 << "." << "\t";
+	}
+}
