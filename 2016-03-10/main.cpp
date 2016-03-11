@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+#include "Social.hpp"
 #include "Localization.hpp"
 
 int main()
@@ -13,4 +13,9 @@ int main()
 	cout << esperanto["PROGRAM TITLE"] << endl;
 
 	return 0;
+}
+
+void viewWall(Post post)
+{
+	cout << post;
 }
