@@ -1,27 +1,19 @@
 #include <iostream>
-<<<<<<< HEAD
 #include <vector>
 #include <string>
-=======
 #include <locale>
 #include <fstream>
->>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
+#include <cstdlib>
 using namespace std;
 
 #include "Localization.hpp"
+
 void Menu1();
 void login();
 void createAcct();
-
-<<<<<<< HEAD
-
-void DisplayUsers(vector people);
-
-
-
-=======
+void DisplayUsers(vector<string> people);
 void NewUser();
->>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
+
 int main()
 {
 	Localization english, esperanto;
@@ -30,32 +22,26 @@ int main()
 
 	cout << english["PROGRAM TITLE"] << endl;
 	cout << esperanto["PROGRAM TITLE"] << endl;
-	
+
 	return 0;
-<<<<<<< HEAD
 }
 
-<<<<<<< HEAD
-
-void DisplayUsers(vector people)
+void DisplayUsers(vector<string> people)
 {
-	for (int i = 0; i <, i++)
+	for (int i = 0; i < people.size(); i++)
 	{
-		cout << people[i] < endl;
+		cout << people[i] << endl;
 	}
 }
-=======
+
 void Menu2(int index)
 {
 	for (int i = 0; i < index; i++)
 	{
 		cout << i + 1 << "." << "\t";
 	}
->>>>>>> 20c2f9dee90c39b53f464c0f503c2065c1cab134
-=======
-
-
 }
+
 void Menu1()
 {
 	int ans;
@@ -63,7 +49,7 @@ void Menu1()
 
 	do {
 		cout << "Would you like to register a new account, or log in as an existing user.?\n1. Log in\n2. Create new account\n>> ";
-		
+
 
 		switch (ans)
 		{
@@ -95,8 +81,7 @@ void login()
 		cout << "Password: ";
 		getline(cin, pass);
 		///set bool loop to true if they match, false if they dont match
-		
-		
+
 			count++;
 			if (count > 3)
 			{
@@ -115,28 +100,24 @@ void login()
 			}
 			else
 				cout << "Invalid, please try again\n";
-		
+
 	} while (!loop);
 }
+
 void createAcct()
 {
 
 }
+
 void NewUser()
-{	
+{
 	string UserName;
 	ofstream fout("User.txt");
 	fout.open("User.txt");
-	
+
 	cout << "What is your user name?" << endl;
 	cin >> UserName;
 
 	fout << UserName;
+}
 
-<<<<<<< HEAD
-}
->>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
-=======
->>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
-}
->>>>>>> 20c2f9dee90c39b53f464c0f503c2065c1cab134

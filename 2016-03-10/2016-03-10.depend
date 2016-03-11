@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1457677197 source:c:\cs201r\2016-03-10\localization.cpp
+	"Localization.hpp"
+	<fstream>
+
+1457677197 c:\cs201r\2016-03-10\localization.hpp
+	<map>
+	<string>
+
+1457735976 source:c:\cs201r\2016-03-10\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<locale>
+	<fstream>
+	<cstdlib>
+	"Localization.hpp"
+
+1457735825 source:c:\cs201r\2016-03-10\social.cpp
+	"Social.hpp"
+
+1457735825 c:\cs201r\2016-03-10\social.hpp
+	<string>
+	<vector>
+	<iostream>
+
