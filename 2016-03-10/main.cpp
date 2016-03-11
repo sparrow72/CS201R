@@ -1,7 +1,14 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 #include "Localization.hpp"
+
+
+void DisplayUsers(vector people);
+
+
 
 int main()
 {
@@ -13,4 +20,13 @@ int main()
 	cout << esperanto["PROGRAM TITLE"] << endl;
 
 	return 0;
+}
+
+
+void DisplayUsers(vector people)
+{
+	for (int i = 0; i <, i++)
+	{
+		cout << people[i] < endl;
+	}
 }
