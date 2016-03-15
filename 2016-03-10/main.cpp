@@ -16,6 +16,9 @@ using namespace std;
 
 #include "Account.hpp"
 
+vector<IPost*>      m_posts;
+vector<IAccount*>   m_accounts;
+
 int main()
 {
     cout << "1. User account" << endl;
@@ -46,7 +49,6 @@ int main()
     cin >> username;
     currentUser->SetUsername( username );
 
-    vector<IPost*> m_posts;
 
 //    char another = 'y';
 //    while ( another == 'y' )
