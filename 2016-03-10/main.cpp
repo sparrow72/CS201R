@@ -46,26 +46,26 @@ int main()
     cin >> username;
     currentUser->SetUsername( username );
 
-    vector<Post> m_posts;
+    vector<IPost*> m_posts;
 
-    char another = 'y';
-    while ( another == 'y' )
-    {
-
-        // Add Post
-        IPost newPost;
-        cout << "Post: ";
-        cin >> newPost.content;
-        newPost.author = currentUser->GetUsername();
-
-        m_posts.push_back( newPost );
-
-        currentUser->AddPost( &m_posts[ m_posts.size() - 1 ] );
-
-        cout << "Add another? ";
-        cin >> another;
-
-    }
+//    char another = 'y';
+//    while ( another == 'y' )
+//    {
+//
+//        // Add Post
+//        IPost newPost;
+//        cout << "Post: ";
+//        cin >> newPost.content;
+//        newPost.author = currentUser->GetUsername();
+//
+//        m_posts.push_back( newPost );
+//
+//        currentUser->AddPost( &m_posts[ m_posts.size() - 1 ] );
+//
+//        cout << "Add another? ";
+//        cin >> another;
+//
+//    }
 
     currentUser->DisplayPosts();
 

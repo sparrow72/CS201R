@@ -9,6 +9,6 @@ void IAccount::DisplayPosts()
 {
     for ( int i = 0; i < m_postPtrs.size(); i++ )
     {
-        cout << m_postPtrs[i]->content << endl << endl;
+        cout << m_postPtrs[i]->GetContent() << endl << endl;
     }
 }

@@ -15,6 +15,7 @@ class IPost
 
     void DeletePost();
     virtual void DisplayPost() = 0;
+    string GetContent() { return m_content; }
 
     protected:
     string m_content;
@@ -40,7 +41,7 @@ class WallPost : public IPost
 class SponsoredPost : public WallPost
 {
     public:
-    SponsoredPost() : IPost() {}
+    SponsoredPost() : WallPost() {}
 
     virtual void DisplayPost();
 

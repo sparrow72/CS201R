@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+#include "Account.hpp"
+
 IPost::IPost()
 {
     m_deleted = false;
