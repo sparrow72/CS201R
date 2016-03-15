@@ -48,7 +48,18 @@ int main()
     string username;
     cin >> username;
     currentUser->SetUsername( username );
-
+	if (choice == 2)
+	{
+		char c;
+		cout << "Display all posts?" << endl;
+		cin >> c;
+		if (c == 'y')
+		{
+			// For loop to display posts in vector for certain user
+			// Get option of post to delete
+			// Set option to deleted calling the deleted function
+		}
+	}
 
 //    char another = 'y';
 //    while ( another == 'y' )
@@ -78,6 +89,7 @@ int main()
 
 	return 0;
 }
+
 
 
 
