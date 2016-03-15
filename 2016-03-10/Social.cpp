@@ -1,5 +1,8 @@
 #include "Social.hpp"
 
+#include <fstream>
+using namespace std;
+
 ostream& operator<<(ostream& out, Post& item)
 {
 	out << item.content << endl << item.mood
