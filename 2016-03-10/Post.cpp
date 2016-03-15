@@ -34,3 +34,8 @@ void PrivatePost::DisplayPost()
     cout << m_content << endl;
     cout << m_date << endl;
 }
+
+bool IPost::GetDelete()
+{
+	return m_deleted;
+}
