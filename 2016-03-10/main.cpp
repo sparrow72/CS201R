@@ -48,6 +48,29 @@ int main()
 
     vector<IPost*> m_posts;
 
+	cout << "Post type" << endl;
+	cout << "__________" << endl;
+	cout << "1. Wall Post" << endl;
+	cout << "2. Private Post" << endl;
+	cout << "3. Private Post" << endl;
+
+	int selectPost;
+	cin >> selectPost;
+
+	
+	if (selectPost == 1)
+	{
+		
+	}
+	else if (selectPost == 2)
+	{
+
+	}
+	else if (selectPost == 3)
+	{
+
+	}
+
 //    char another = 'y';
 //    while ( another == 'y' )
 //    {
