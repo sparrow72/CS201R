@@ -15,12 +15,12 @@ class IAccount
     void SetUsername( const string& val )   { m_username = val; }
 
     virtual string AccountType() = 0;
-    void AddPost( Post* ptrPost );
+    void AddPost( IPost* ptrPost );
     void DisplayPosts();
 
     protected:
     string m_username;
-    vector<Post*> m_postPtrs;
+    vector<IPost*> m_postPtrs;
 };
 
 class UserAccount : public IAccount

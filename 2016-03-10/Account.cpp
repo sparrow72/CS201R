@@ -1,6 +1,6 @@
 #include "Account.hpp"
 
-void IAccount::AddPost( Post* ptrPost )
+void IAccount::AddPost( IPost* ptrPost )
 {
     m_postPtrs.push_back( ptrPost );
 }
