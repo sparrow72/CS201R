@@ -17,7 +17,7 @@ using namespace std;
 #include "Account.hpp"
 
 vector<IPost*>      m_posts;
-vector<IAccount*>   m_accounts;
+vector<IAccount*>       m_accounts;
 
 int main()
 {
