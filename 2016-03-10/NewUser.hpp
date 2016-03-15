@@ -4,13 +4,24 @@
 void NewUser()
 {
 	string UserName;
+	float Balance;
 	ofstream fout("User.txt");
-	fout.open("User.txt");
 
-	cout << "What is your user name?" << endl;
+
+	fstream outfile;
+
+	fout.open("user.txt", std::ios_base::app);
+	
+	cout << "What is your user name >> ";
 	cin >> UserName;
+	cout << endl;
 
-	fout << UserName;
+	cout << "What is your balance >> ";
+	cin >> Balance;
+
+
+	fout << UserName << "        $. " << Balance;
+
 }
 
 #endif
