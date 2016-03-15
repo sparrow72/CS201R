@@ -16,6 +16,9 @@ using namespace std;
 
 #include "Account.hpp"
 
+vector<IPost*>      m_posts;
+vector<IAccount*>       m_accounts;
+
 int main()
 {
     cout << "1. User account" << endl;
@@ -45,8 +48,18 @@ int main()
     string username;
     cin >> username;
     currentUser->SetUsername( username );
-
-    vector<IPost*> m_posts;
+	if (choice == 2)
+	{
+		char c;
+		cout << "Display all posts?" << endl;
+		cin >> c;
+		if (c == 'y')
+		{
+			// For loop to display posts in vector for certain user
+			// Get option of post to delete
+			// Set option to deleted calling the deleted function
+		}
+	}
 
 	cout << "Post type" << endl;
 	cout << "__________" << endl;
@@ -99,6 +112,7 @@ int main()
 
 	return 0;
 }
+
 
 
 
