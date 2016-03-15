@@ -11,7 +11,10 @@ class IAccount;
 class IPost
 {
     public:
+    IPost();
+
     void DeletePost();
+    virtual void DisplayPost() = 0;
 
     protected:
     string m_content;
@@ -24,8 +27,11 @@ class IPost
 class WallPost : public IPost
 {
     public:
+    WallPost() : IPost() {}
+
     void AddLike( IAccount* ptrAccount );
     void WritePost( IAccount* ptrAuthor );
+    virtual void DisplayPost();
 
     private:
     IAccount* m_responseTo;
@@ -34,6 +40,9 @@ class WallPost : public IPost
 class SponsoredPost : public WallPost
 {
     public:
+    SponsoredPost() : IPost() {}
+
+    virtual void DisplayPost();
 
     private:
     IAccount* m_sponsor;
@@ -43,7 +52,9 @@ class SponsoredPost : public WallPost
 class PrivatePost : public IPost
 {
     public:
+    PrivatePost() : IPost() {}
     void WritePost( IAccount* ptrAuthor, IAccount* ptrRecipient );
+    virtual void DisplayPost();
 
     private:
     IAccount* m_recipient;

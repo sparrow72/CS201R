@@ -53,7 +53,7 @@ int main()
     {
 
         // Add Post
-        Post newPost;
+        IPost newPost;
         cout << "Post: ";
         cin >> newPost.content;
         newPost.author = currentUser->GetUsername();
