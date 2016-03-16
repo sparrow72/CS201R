@@ -11,7 +11,7 @@ void Menu1()
 
 	do {
 		cout << "Would you like to register a new account, or log in as an existing user.?\n1. Log in\n2. Create new account\n>> ";
-
+		cin >> ans;
 
 		switch (ans)
 		{
