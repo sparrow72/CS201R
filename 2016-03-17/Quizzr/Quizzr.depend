@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1458107192 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/main.cpp
+	<iostream>
+	<vector>
+	"Menu.hpp"
+	"Question.hpp"
+
+1458107124 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Menu.hpp
+	<iostream>
+	<string>
+
+1458106780 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Question.hpp
+

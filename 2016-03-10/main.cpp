@@ -6,7 +6,7 @@
 #include <cstdlib>
 using namespace std;
 
-#include "Localization.hpp"
+//#include "Localization.hpp"
 
 #include "Menu.hpp"
 #include "Login.hpp"
@@ -101,7 +101,7 @@ int main()
 //        cout << "Add another? ";
 //        cin >> another;
 //
-//    }
+//   }
 
     currentUser->DisplayPosts();
 
