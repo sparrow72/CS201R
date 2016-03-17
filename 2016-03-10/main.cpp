@@ -5,8 +5,16 @@
 #include <fstream>
 #include <cstdlib>
 using namespace std;
+<<<<<<< HEAD
+#include "Social.hpp"
+#include "Localization.hpp"
+void Menu1();
+void login();
+void createAcct();
+=======
 
 //#include "Localization.hpp"
+>>>>>>> origin/master
 
 #include "Menu.hpp"
 #include "Login.hpp"
@@ -14,7 +22,21 @@ using namespace std;
 #include "DisplayUsers.hpp"
 #include "NewUser.hpp"
 
+<<<<<<< HEAD
+	cout << english["PROGRAM TITLE"] << endl;
+	cout << esperanto["PROGRAM TITLE"] << endl;
+	
+	return 0;
+<<<<<<< HEAD
+}
+
+void viewWall(Post post)
+{
+	cout << post;
+=======
+=======
 #include "Account.hpp"
+>>>>>>> origin/master
 
 vector<IPost*>      m_posts;
 vector<IAccount*>       m_accounts;
@@ -112,6 +134,21 @@ int main()
 
 	return 0;
 }
+<<<<<<< HEAD
+void NewUser()
+{	
+	string UserName;
+	ofstream fout("User.txt");
+	fout.open("User.txt");
+	
+	cout << "What is your user name?" << endl;
+	cin >> UserName;
+
+	fout << UserName;
+
+>>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
+}
+=======
 
 
 
@@ -120,3 +157,4 @@ int main()
 
 
 
+>>>>>>> origin/master

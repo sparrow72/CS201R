@@ -2,7 +2,10 @@
 #define _QUESTION
 
 #include <string>
+<<<<<<< HEAD
+=======
 using namespace std;
+>>>>>>> da3eef21c307a208cd3a5da33b32ef28c1801a93
 
 class IQuestion
 {
@@ -199,6 +202,41 @@ public:
 // Question where user fills in a line of text as the answer, compare to stored answer text
 class Essay : public IQuestion
 {
+public:
+
+	virtual void CreateQuestion()
+	{
+		cout << "Enter a question" << endl;
+		cout << ">> ";
+		getline(cin, question);
+		cout << "Enter the correct answer to your question" << endl;
+		cout << ">> ";
+		getline(cin, correctAnswer);
+	}
+
+	virtual void Display()
+	{
+		cout << question;
+	}
+
+	virtual bool Answer()
+	{
+		cout << "Enter the correct answer" << endl;
+		cout << ">>";
+		getline(cin, answer);
+		if (answer == correctAnswer)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+private:
+	string question;
+	string correctAnswer;
+	string answer;
 };
 
 // Question with 3 items listed, and user must order them 1 to 3.
