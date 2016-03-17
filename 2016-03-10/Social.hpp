@@ -22,6 +22,7 @@ class Person
 	string name;
 	vector<Post> posts;
 	Post& operator[](const int index);
+	void newPost(vector<Post>& wall);
 };
 
 #endif
