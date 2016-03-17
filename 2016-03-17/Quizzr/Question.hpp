@@ -27,8 +27,8 @@ class TrueFalse : public IQuestion
 class MultipleChoice : public IQuestion
 {
 private:
-    string m_question;
-    string m_answers[4];
+    string m_question;      //
+    string m_answers[4];     //change to vector
     int NumQuestions;
     string m_correct;
 
