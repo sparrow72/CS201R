@@ -8,9 +8,8 @@ void NewUser()
 	ofstream fout("User.txt");
 
 
-	fstream outfile;
 
-	fout.open("user.txt", std::ios_base::app);
+	fout.open("User.txt", std::ios_base::app);
 	
 	cout << "What is your user name >> ";
 	cin >> UserName;
