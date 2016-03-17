@@ -12,7 +12,7 @@ class IPost
 {
     public:
     IPost();
-	bool SetDelete();
+	bool GetDelete();
 
     void DeletePost();
     virtual void DisplayPost() = 0;

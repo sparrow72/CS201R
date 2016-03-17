@@ -31,6 +31,57 @@ class MultipleChoice : public IQuestion
 // Question with 4 possible answers, 0 to 4 correct
 class MultipleAnswer : public IQuestion
 {
+private:
+	string answers[4];
+	string question;
+	bool correct_ans[4];
+
+	void MultipleAnswer::CreateQuestion()
+	{
+		
+		cout << "Please type the question" << endl << ">> ";
+		getline(cin,question);
+		for (int i = 0; i < 4; i++)
+		{
+			cout << "Please type a possible answers" << endl << ">> ";
+			getline(cin,answers[i]);
+			while (true)
+			{
+				cout << "Is this a correct answer? (y/n)" << endl << ">> ";
+				char y_n;
+				cin >> y_n;
+			
+				if (y_n == 'y')
+				{
+					correct_ans[i] = true;
+					break;
+				}
+				else if (y_n == 'n')
+				{
+					correct_ans[i] = false;
+					break;
+				}
+				else
+				{
+					cout << "Invalid choice. Please type 'y' or 'n'.";
+					continue;
+				}
+			}
+			
+		}
+	}
+	void MultipleAnswer::Display()
+	{
+		cout << question << endl;
+		for (int i = 0; i < answers[4].size(); i++)
+		{
+			cout << answers[i] << endl;
+		}
+	}
+	bool MultipleAnswer::Answer()
+	{
+		cout << "Please enter all answers that are correct." << endl << ">> ";
+	}
 };
 
 // Question where user fills in one word as answer, compare to stored answer text
