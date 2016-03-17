@@ -1,20 +1,28 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include <locale>
 #include <fstream>
+#include <cstdlib>
 using namespace std;
+<<<<<<< HEAD
 #include "Social.hpp"
 #include "Localization.hpp"
 void Menu1();
 void login();
 void createAcct();
+=======
 
-void NewUser();
-int main()
-{
-	Localization english, esperanto;
-	english.LoadLanguage("C:\\CS201R\\2016-03-10\\english.txt", "English");
-	esperanto.LoadLanguage("C:\\CS201R\\2016-03-10\\esperanto.txt", "Esperanto");
+//#include "Localization.hpp"
+>>>>>>> origin/master
 
+#include "Menu.hpp"
+#include "Login.hpp"
+#include "CreateAccount.hpp"
+#include "DisplayUsers.hpp"
+#include "NewUser.hpp"
+
+<<<<<<< HEAD
 	cout << english["PROGRAM TITLE"] << endl;
 	cout << esperanto["PROGRAM TITLE"] << endl;
 	
@@ -26,75 +34,84 @@ void viewWall(Post post)
 {
 	cout << post;
 =======
+=======
+#include "Account.hpp"
+>>>>>>> origin/master
 
+vector<IPost*>      m_posts;
+vector<IAccount*>       m_accounts;
 
-}
-void Menu1()
+int main()
 {
-	int ans;
-	bool loop = false;
+    cout << "1. User account" << endl;
+    cout << "2. Admin account" << endl;
+    cout << "3. Advert account" << endl;
+    cout << ">> ";
 
-	do {
-		cout << "Would you like to register a new account, or log in as an existing user.?\n1. Log in\n2. Create new account\n>> ";
-		
+    int choice;
+    cin >> choice;
 
-		switch (ans)
+    IAccount* currentUser = NULL;
+
+    if ( choice == 1 )
+    {
+        currentUser = new UserAccount;
+    }
+    else if ( choice == 2 )
+    {
+        currentUser = new AdminAccount;
+    }
+    else if ( choice == 3 )
+    {
+        currentUser = new AdAccount;
+    }
+
+    cout << "Username: ";
+    string username;
+    cin >> username;
+    currentUser->SetUsername( username );
+	if (choice == 2)
+	{
+		char c;
+		cout << "Display all posts?" << endl;
+		cin >> c;
+		if (c == 'y')
 		{
-		case 1:
-			login();
-			loop = true;
-			break;
-		case 2:
-			createAcct();
-			loop = false;
-			break;
-		default:
-			cout << "Invalid, please try again\n";
-			break;
+			// For loop to display posts in vector for certain user
+			// Get option of post to delete
+			// Set option to deleted calling the deleted function
 		}
-	} while (!loop);
-}
+	}
 
-void login()
-{
-	int count = 0;
-	string answer, pass;
-	bool loop = false;
-	locale loc;
+//    char another = 'y';
+//    while ( another == 'y' )
+//    {
+//
+//        // Add Post
+//        IPost newPost;
+//        cout << "Post: ";
+//        cin >> newPost.content;
+//        newPost.author = currentUser->GetUsername();
+//
+//        m_posts.push_back( newPost );
+//
+//        currentUser->AddPost( &m_posts[ m_posts.size() - 1 ] );
+//
+//        cout << "Add another? ";
+//        cin >> another;
+//
+//   }
 
-	do {
-		cout << "Username: ";
-		getline(cin, answer);
-		cout << "Password: ";
-		getline(cin, pass);
-		///set bool loop to true if they match, false if they dont match
-		
-		
-			count++;
-			if (count > 3)
-			{
-				system("cls");
-				cout << "Invalid, you have now been locked out . . .\n";
-				system("pause");
-				return;
-			}
-			else if (count == 3)
-			{
-				cout << "\nAnother invalid responce shall result in termination!\n";
-			}
-			else if (count == 2)
-			{
-				cout << "\nre-evaluating...\n";
-			}
-			else
-				cout << "Invalid, please try again\n";
-		
-	} while (!loop);
-}
-void createAcct()
-{
+    currentUser->DisplayPosts();
 
+
+
+
+    delete currentUser;
+
+	return 0;
 }
+<<<<<<< HEAD
 void NewUser()
 {	
 	string UserName;
@@ -108,3 +125,13 @@ void NewUser()
 
 >>>>>>> 7a270323f9ee83bf830bc5130681e46643ec5c38
 }
+=======
+
+
+
+
+
+
+
+
+>>>>>>> origin/master
