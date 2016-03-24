@@ -114,7 +114,7 @@ private:
 	string question;
 	bool correct_ans[4];
 
-	void MultipleAnswer::CreateQuestion()
+	void CreateQuestion()
 	{
 		
 		cout << "Please type the question" << endl << ">> ";
@@ -148,7 +148,7 @@ private:
 			
 		}
 	}
-	void MultipleAnswer::Display()
+	void Display()
 	{
 		cout << question << endl;
 		for (int i = 0; i < answers[4].size(); i++)
@@ -156,7 +156,7 @@ private:
 			cout << answers[i] << endl;
 		}
 	}
-	bool MultipleAnswer::Answer()
+	bool Answer()
 	{
 		cout << "Please enter all answers that are correct." << endl << ">> ";
 	}
