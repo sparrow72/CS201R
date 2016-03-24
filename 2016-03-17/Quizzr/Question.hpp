@@ -290,24 +290,28 @@ public:
 
 	virtual void CreateQuestion()
 	{
-		cout << "Enter a question" << endl;
-		cout << ">> ";
-		getline(cin, question);
-		cout << "Enter the correct answer to your question" << endl;
-		cout << ">> ";
+		cout << "Enter a question  >> ";
+		cin.ignore();
+		getline(cin, Question);
+
+		cout << "\n" << "Enter the correct answer to your question  >> ";
+		cin.ignore();
 		getline(cin, correctAnswer);
+		
 	}
 
 	virtual void Display()
 	{
-		cout << question;
+		cout << Question << endl;
 	}
 
 	virtual bool Answer()
 	{
-		cout << "Enter the correct answer" << endl;
-		cout << ">>";
+		cout << "Enter the correct answer  >> ";
+		cin.ignore();
 		getline(cin, answer);
+		
+		
 		if (answer == correctAnswer)
 		{
 			return true;
@@ -318,7 +322,7 @@ public:
 		}
 	}
 private:
-	string question;
+	string Question;
 	string correctAnswer;
 	string answer;
 };
