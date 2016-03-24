@@ -80,7 +80,7 @@ void CreateQuestion( vector<IQuestion*>& questions )
     }
     else if ( questionTypes[ choice ].key == "BLANK" )
     {
-//        question = new FillInTheBlank;
+        question = new FillInTheBlank;
     }
     else if ( questionTypes[ choice ].key == "ESSAY" )
     {
@@ -92,16 +92,24 @@ void CreateQuestion( vector<IQuestion*>& questions )
     else if ( questionTypes[ choice ].key == "ORDER" )
     {
 		question = new Ordering;
-		
+
 	}
-    
+
     else if ( questionTypes[ choice ].key == "BLANK3" )
     {
 //        question = new ThreeBlanks;
     }
 
-    question->CreateQuestion();
-    questions.push_back( question );
+
+    if ( question == NULL )
+    {
+        cout << "Error: Did not create a question type" << endl;
+    }
+    else
+    {
+        question->CreateQuestion();
+        questions.push_back( question );
+    }
 }
 
 void RunQuiz( vector<IQuestion*>& questions )
