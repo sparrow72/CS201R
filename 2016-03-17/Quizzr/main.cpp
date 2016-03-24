@@ -45,6 +45,7 @@ int main()
 
     FreeMemory( questions );
 
+	system("pause");
     return 0;
 }
 
@@ -85,15 +86,25 @@ void CreateQuestion( vector<IQuestion*>& questions )
    /* else if ( questionTypes[ choice ].key == "ESSAY" )
     {
 		question = new Essay;
+<<<<<<< HEAD
 		question->CreateQuestion();
 		question->Display();
 		question->Answer();
     }*/
    /* else if ( questionTypes[ choice ].key == "ORDER" )
+=======
+    }
+    else if ( questionTypes[ choice ].key == "ORDER" )
+>>>>>>> 5ce5200194588082cd5133286d4943e60efab188
     {
+<<<<<<< HEAD
+		//question = new Ordering;
+		
+=======
 		question = new Ordering;
 <<<<<<< Updated upstream
 
+>>>>>>> origin/master
 	}
 
 =======
