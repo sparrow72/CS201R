@@ -3,7 +3,12 @@
 
 #include <iostream>
 #include <string>
+<<<<<<< HEAD
 #include <locale>
+=======
+
+
+>>>>>>> 300644ef3b135b8d7f12f1c32aac6faa98a45bc3
 using namespace std;
 
 class IQuestion
@@ -325,14 +330,39 @@ private:
 // Question with 3 items listed, and user must order them 1 to 3.
 class Ordering : public IQuestion
 {
+
+private:
+	struct QA
+	{
+		string Question;
+		string CorrectAnswer;
+		string Answers[5] = {" "," "," "," "," "};
+	};
+	
+	bool ValidChoice(int min, int max, int choice)
+	{
+		if (choice < min || choice > max)
+		{
+			cout << "Invalid Choice" << endl;
+			return false;
+		}
+		return true;
+	}
+	
+	vector<QA> quest;
+
 public:
 	// Display menus to have user enter question and answer(s)
-
-
 	virtual void CreateQuestion()
 	{
-		struct QA
+		QA Dummy;
+		quest.push_back(Dummy);
+		string buffer;
+		bool Correct = false;
+
+		for (int i = 1; i < 5; i++)
 		{
+<<<<<<< HEAD
 			string Question;
 			string Answer[4][2];
 		};
@@ -343,37 +373,87 @@ public:
 
 		cout << "What are your question?" << endl;
 		for (int i = 0; i < 4; i++)
-		{
-			cout << i + 1 << " ";
-			cin >> input;
-			cout << endl;
-			quest[i].Question = input;
-			cout << "What are the answers for this question" << endl;
-			for (int k = 0; k < 4; k++)
+=======
+			QA question;
+			cout << "What is your " << i << " question? ";
+
+			cin >> buffer;
+			question.Question = buffer;
+			for (int i = 1; i < 5; i++)
 			{
+				cout << "What is the " << i << " posible answers for this question? " << endl;
+				cin >> question.Answers[i];
+				if (!(Correct)) 
+				{
+					cout << "Is this answer correct? Y/N ";
+					cin >> buffer;
+					if ((buffer == "Y" || buffer == "y"))
+					{
+						question.CorrectAnswer = question.Answers[i];
+						Correct = true;
+					}
+				}
+			}
+			cout << endl;
+			quest.push_back(question);
+			Correct = false;
+		}
+	
+		int index = 1;
+		int place;
+		while (index < 4)
+>>>>>>> 300644ef3b135b8d7f12f1c32aac6faa98a45bc3
+		{
+			for (int k = 1; k < 5; k++) { cout << k << ") " << quest[k].Question << endl; }
+			cout << "What question do you want in " << index << "st place? ";
+
+			while (true)
+			{
+<<<<<<< HEAD
 
 				cin >> input;
 				quest[i].Answer[k][0] = input;
 				cout << "Is this Answes correct ";
 				quest[i].Answer[k][1];
+=======
+				cin >> place;
+				if ((ValidChoice(1, 4, place)))
+				{
+					break;
+				}
+>>>>>>> 300644ef3b135b8d7f12f1c32aac6faa98a45bc3
 			}
-
+			swap(quest[index], quest[place]);
+			index++;
 		}
-
-		for (int i = 0; i < 4; i++)
-		{
-			cout << "What are your Answers for " << question[i] << endl;
-			cin >> input;
-		}
-
 	}
-	// Displays the question and answer(s)
-	virtual void Display();
 
-	// Displays menus to have user to enter the answer(s)
-	// Returns true if they answered correctly,
-	// otherwise false
-	virtual bool Answer();
+	// Displays the question and answer(s)
+	virtual void Display()
+	{
+		int answer;
+		for (int i = 1; i < 5; i++)
+		{
+			cout << i << ") Question " << quest[i].Question << endl;
+			for (int k = 1; k < 5; k++)
+			{
+				cout <<"    "<< k << ") " << quest[i].Answers[k] << endl;
+			}
+			while (true)
+			{
+				cin >> answer;
+				if ((ValidChoice(1, 4, answer)))
+				{
+					break;
+				}
+			}
+			
+		}
+	}
+	virtual bool Answer()
+	{
+		return true;
+	}
 
 };
 

@@ -63,7 +63,7 @@ void CreateQuestion( vector<IQuestion*>& questions )
     Menu::ClearScreen();
     Menu::Header( "QUESTION TYPE" );
     Menu::ShowMenu( questionTypes, 7 );
-    int choice = Menu::GetValidChoice( "What kind of question do you want to create?", 1, 3 ) - 1;
+    int choice = Menu::GetValidChoice( "What kind of question do you want to create?", 1, 7 ) - 1;
 
     IQuestion* question;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
@@ -91,8 +91,10 @@ void CreateQuestion( vector<IQuestion*>& questions )
     }
     else if ( questionTypes[ choice ].key == "ORDER" )
     {
-//        question = new Ordering;
-    }
+		question = new Ordering;
+		
+	}
+    
     else if ( questionTypes[ choice ].key == "BLANK3" )
     {
 //        question = new ThreeBlanks;
