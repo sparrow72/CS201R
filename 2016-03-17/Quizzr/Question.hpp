@@ -24,7 +24,7 @@ public:
 protected:
 	string question;
 };
-
+/*
 // Question with either TRUE or FALSE answer, only 1 correct
 class TrueFalse : public IQuestion
 {
@@ -95,13 +95,13 @@ public:
 			return false;
 	}
 };
-
+*/
 // Question with 4 possible answers, only 1 correct
 class MultipleChoice : public IQuestion
 {
 private:
-	string m_question;      //
-	string m_answers[4];     //change to vector
+	string m_question;
+	string m_answers[4];
 	int NumQuestions;
 	string m_correct;
 
@@ -111,12 +111,14 @@ public:
 	void SetAnswers(string answers, int index);
 	string GetQuestion();
 	string GetAnswers(int index);
+	bool IsCorrect(int answer);
+	void CorrectAnswer(int index);
 
 	virtual void CreateQuestion();
 	virtual void Display();
 	virtual bool Answer();
 };
-
+/*
 // Question with 4 possible answers, 0 to 4 correct
 class MultipleAnswer : public IQuestion
 {
@@ -402,5 +404,5 @@ private:
 	string m_r3;
 	string m_question;
 };
-
+*/
 #endif

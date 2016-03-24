@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-MultipleChoice()
+MultipleChoice::MultipleChoice()
 {
     string m_question = " ";
     string m_answers[4] = " ";
@@ -17,10 +17,6 @@ void MultipleChoice::SetAnswers(string answers, int index)
 {
     m_answers = answers[index];
 }
-void MultipleChoice::SetCorrectAnwer(string correct)
-{
-    m_correct = correct;
-}
 string MultipleChoice::GetQuestion()
 {
     return m_question;
@@ -29,7 +25,7 @@ string MultipleChoice::GetAnswers(int index)
 {
     return m_answers[index];
 }
-virtual void MultipleChoice::CreateQuestion()
+void MultipleChoice::CreateQuestion()
 {
     bool done = false;
     while(!done)
@@ -47,24 +43,34 @@ virtual void MultipleChoice::CreateQuestion()
         if(choice == 1)
         {
             MultipleChoice question;
-            MultipleChoice answers[4];
-            int Answer;
+            string Quest;
 
             cout << "Question: ";
-            getline(cin,question);
+            getline(cin,Quest);
+
+            question.SetQuestion(Quest);
+
+             int index;
+            string answers;
 
             for(int i = 0; i < 4; i++)
-            {
-            cout << "Answer " i + 1 << ": ";
-            getline(cin, answers[i]);
-            }
-            cout << "Correct Answer: ";
-            cin >> Answer;
-            while(Answer < 0 || Answer > 4)
-            {
-                cout << "Invalid option. Choose again: ";
-                cin >> Answer;
-            }
+                {
+                cout << "Answer " << i + 1 << ": ";
+                getline(cin, answers);
+                question.SetAnswers(answers, i);
+                }
+
+                int answer;
+                cout << "Correct Answer: ";
+                cin >> index;
+                question.CorrectAnswer(index-1);
+                while(Answer < 0 || Answer > 4)
+                {
+                    cout << "Invalid option. Choose again: ";
+                    cin >> Answer;
+                }
+
+
             NumQuestions++;
         }
         else if(choice == 2)
@@ -74,26 +80,51 @@ virtual void MultipleChoice::CreateQuestion()
 
     }
 }
-virtual void MultipleChoice::Display()
+void MultipleChoice::Display()
 {
-    MultipleChoice item;
+    MultipleChoice item[NumQuestions];
+    int correct;
 
-    cout << item.GetQuestion() << endl;;
+    for(int i = 0; i < NumQuestions; i
+    {
+        cout << item[i].GetQuestion() << endl;;
         for(int j=0; j < 4; j++)
         {
-            cout << "\t" << item.GetAnswers[j] << endl;;
+            cout << "\t" << item[i].GetAnswers(j) << endl;;
         }
+
+    }
 }
-virtual bool MultipleChoice::Answer(string answer)
+bool MultipleChoice::Answer()
 {
-    if(answer == m_correct)
+    MultipleChoice item;
+    cout << "What is the correct answer? " << end;
+    cin >> correct;
+
+        if(item.IsCorrect(correct) == true)
+        {
+            cout << "Correct " << endl;
+        }
+        else
+        {
+            cout << "Incorrect " << endl;
+        }
+
+}
+bool MultipleChoice::IsCorrect(int answer)
+{
+    if(m_question[answer] == m_correct)
     {
         return true;
     }
     return false;
 }
+void MultipleChoice::CorrectAnswer(int index)
+{
+    m_correct = m_question[index];
+}
 
-void ThreeBlanks::CreateQuestion() {
+/*void ThreeBlanks::CreateQuestion() {
 	cout << "Please enter the question below: " << endl;
 	getline(cin, m_question);
 	cout << endl;
