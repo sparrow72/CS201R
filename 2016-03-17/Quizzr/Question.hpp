@@ -38,7 +38,7 @@ public:
 		cout << "Please typed in you question: ";
 		getline(cin, question);
 		cout << "Is the question true or false (ture/false): ";
-
+		loop = false;
 		do {///gets line of answer. repeats if the line does not start with t or f.
 			getline(cin, answer);
 			string::size_type i = 0;
@@ -62,6 +62,7 @@ public:
 	}
 	virtual void Display()
 	{
+		loop = false;
 		cout << "True or false: " << question;
 		do {///gets line of answer. repeats if the line does not start with t or f.
 			getline(cin, answer);
