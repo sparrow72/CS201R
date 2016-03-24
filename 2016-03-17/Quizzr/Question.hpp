@@ -251,7 +251,26 @@ public:
 
 	virtual bool Answer()
 	{
+		int numberOfCorrectAnswers = 0;
+		cout << "Please enter your answers:";
+		for (int i = 0; i < numberOfQuestions; i++)
+		{
+			cout << (i + 1) + ". ";
+			cin >> UserAnswers[i];
 
+			if (UserAnswers[i] == Answers[i])
+			{
+				cout << endl;
+				cout << "Correct!" << endl;
+				numberOfCorrectAnswers++;
+			}
+			else
+			{
+				cout << endl;
+				cout << "Sorry! the answer is " << Answers[i] << endl;
+			}
+		}
+		cout << "You got " << numberOfCorrectAnswers << " out of " << numberOfQuestions << "." << endl;
 	}
 };
 
