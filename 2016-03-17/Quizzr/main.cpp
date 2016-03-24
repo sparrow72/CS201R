@@ -66,10 +66,10 @@ void CreateQuestion( vector<IQuestion*>& questions )
     Menu::ShowMenu( questionTypes, 7 );
     int choice = Menu::GetValidChoice( "What kind of question do you want to create?", 1, 7 ) - 1;
 
-    IQuestion* question;
+    IQuestion* question = NULL;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
     {
-//        question = new TrueFalse;
+       question = new TrueFalse;
     }
     else if ( questionTypes[ choice ].key == "MULTI_CHOICE" )
     {
@@ -81,7 +81,7 @@ void CreateQuestion( vector<IQuestion*>& questions )
     }
     else if ( questionTypes[ choice ].key == "BLANK" )
     {
-//        question = new FillInTheBlank;
+        question = new FillInTheBlank;
     }
     else if ( questionTypes[ choice ].key == "ESSAY" )
     {
@@ -89,17 +89,32 @@ void CreateQuestion( vector<IQuestion*>& questions )
     }
     else if ( questionTypes[ choice ].key == "ORDER" )
     {
+<<<<<<< HEAD
 		//question = new Ordering;
 		
+=======
+		question = new Ordering;
+
+>>>>>>> origin/master
 	}
-    
+
     else if ( questionTypes[ choice ].key == "BLANK3" )
     {
 //        question = new ThreeBlanks;
     }
 
-    question->CreateQuestion();
-    questions.push_back( question );
+
+    if ( question == NULL )
+    {
+        cout << "Error: Did not create a question type. Press a key to continue." << endl;
+        string a;
+        cin >> a;
+    }
+    else
+    {
+        question->CreateQuestion();
+        questions.push_back( question );
+    }
 }
 
 void RunQuiz( vector<IQuestion*>& questions )
@@ -117,6 +132,7 @@ void RunQuiz( vector<IQuestion*>& questions )
 
     int result = score / questions.size() * 100;
     cout << "Your score: " << result << "%" << endl;
+	system("pause");
 }
 
 void FreeMemory( vector<IQuestion*>& questions )
