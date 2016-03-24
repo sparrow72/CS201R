@@ -169,3 +169,4 @@ bool ThreeBlanks::Answer() {
 		return true;
 	}
 }
+

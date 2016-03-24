@@ -18,7 +18,7 @@ int main()
         "Run quiz"
     };
 
-    // Question Creation
+     Question Creation
 
     bool creatingQuestions = true;
     while ( creatingQuestions )
@@ -37,14 +37,15 @@ int main()
         }
     }
 
-    // Display Quiz
+     Display Quiz
 
     RunQuiz( questions );
 
-    // Clear
+     Clear
 
     FreeMemory( questions );
 
+	system("pause");
     return 0;
 }
 
@@ -68,21 +69,29 @@ void CreateQuestion( vector<IQuestion*>& questions )
     IQuestion* question = NULL;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
     {
+<<<<<<< HEAD
 //       question = new TrueFalse;
+=======
+       /*question = new TrueFalse;*/
+>>>>>>> 2302c4b953085a8b86b443d89f2e99b0174d5f24
     }
     else if ( questionTypes[ choice ].key == "MULTI_CHOICE" )
     {
         question = new MultipleChoice;
+<<<<<<< HEAD
         question->CreateQuestion();
         question->Answer();
         question->Display();
+=======
+>>>>>>> 2302c4b953085a8b86b443d89f2e99b0174d5f24
     }
     else if ( questionTypes[ choice ].key == "MULTI_ANSWER" )
     {
-//        question = new MultipleAnswer;
+        question = new MultipleAnswer;
     }
-    else if ( questionTypes[ choice ].key == "BLANK" )
+    /*else if ( questionTypes[ choice ].key == "BLANK" )
     {
+<<<<<<< HEAD
 //  question = new FillInTheBlank;
     }
     else if ( questionTypes[ choice ].key == "ESSAY" )
@@ -91,13 +100,43 @@ void CreateQuestion( vector<IQuestion*>& questions )
 		question->CreateQuestion();
 		question->Display();
 		question->Answer();*/
+=======
+        question = new FillInTheBlank;
+    }*/
+   /* else if ( questionTypes[ choice ].key == "ESSAY" )
+    {
+		question = new Essay;
+<<<<<<< HEAD
+		question->CreateQuestion();
+		question->Display();
+		question->Answer();
+    }*/
+   /* else if ( questionTypes[ choice ].key == "ORDER" )
+=======
+>>>>>>> 2302c4b953085a8b86b443d89f2e99b0174d5f24
     }
     else if ( questionTypes[ choice ].key == "ORDER" )
+>>>>>>> 5ce5200194588082cd5133286d4943e60efab188
     {
+<<<<<<< HEAD
 		//question = new Ordering;
+=======
+<<<<<<< HEAD
+		//question = new Ordering;
+		
+=======
+		question = new Ordering;
+<<<<<<< Updated upstream
+>>>>>>> 2302c4b953085a8b86b443d89f2e99b0174d5f24
 
+>>>>>>> origin/master
 	}
 
+=======
+		
+	}*/
+    
+>>>>>>> Stashed changes
     else if ( questionTypes[ choice ].key == "BLANK3" )
     {
 //        question = new ThreeBlanks;
