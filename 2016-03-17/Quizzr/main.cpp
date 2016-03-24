@@ -65,7 +65,7 @@ void CreateQuestion( vector<IQuestion*>& questions )
     Menu::ShowMenu( questionTypes, 7 );
     int choice = Menu::GetValidChoice( "What kind of question do you want to create?", 1, 7 ) - 1;
 
-    IQuestion* question;
+    IQuestion* question = NULL;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
     {
 //        question = new TrueFalse;
@@ -103,7 +103,9 @@ void CreateQuestion( vector<IQuestion*>& questions )
 
     if ( question == NULL )
     {
-        cout << "Error: Did not create a question type" << endl;
+        cout << "Error: Did not create a question type. Press a key to continue." << endl;
+        string a;
+        cin >> a;
     }
     else
     {
