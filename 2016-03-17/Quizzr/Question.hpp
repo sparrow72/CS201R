@@ -323,9 +323,8 @@ private:
 	{
 		string Question;
 		string CorrectAnswer;
-		string Answers[5] = {" "," "," "," "," "};
+		vector <string> Answers;
 	};
-	
 	bool ValidChoice(int min, int max, int choice)
 	{
 		if (choice < min || choice > max)
@@ -335,51 +334,55 @@ private:
 		}
 		return true;
 	}
-	
-	vector<QA> quest;
-
+	int answer;
+	QA question;
 public:
 	// Display menus to have user enter question and answer(s)
 	virtual void CreateQuestion()
 	{
-		QA Dummy;
-		quest.push_back(Dummy);
-		string buffer;
+		
 		bool Correct = false;
+		string buffer;
+		
+		cout <<"What is your question? ";
+		cin.ignore();
+		getline(cin,question.Question);
+		cout << endl;
+		question.Answers.push_back(" ");
 
+	
 		for (int i = 1; i < 5; i++)
-		{
-			QA question;
-			cout << "What is your " << i << " question? ";
-
-			cin >> buffer;
-			question.Question = buffer;
-			for (int i = 1; i < 5; i++)
 			{
-				cout << "What is the " << i << " posible answers for this question? " << endl;
-				cin >> question.Answers[i];
-				if (!(Correct)) 
-				{
+				cout << "What is the " << i << "  answers for this question? " << endl;
+				//cin.ignore();
+				getline(cin, buffer);
+
+				question.Answers.push_back(buffer);
+				if (!Correct){
 					cout << "Is this answer correct? Y/N ";
-					cin >> buffer;
+					//cin >> buffer;
+					getline(cin, buffer);
+	
+					
 					if ((buffer == "Y" || buffer == "y"))
 					{
 						question.CorrectAnswer = question.Answers[i];
 						Correct = true;
 					}
 				}
+				cout << endl;
 			}
-			cout << endl;
-			quest.push_back(question);
-			Correct = false;
-		}
+		
 	
 		int index = 1;
 		int place;
 		while (index < 4)
 		{
-			for (int k = 1; k < 5; k++) { cout << k << ") " << quest[k].Question << endl; }
-			cout << "What question do you want in " << index << "st place? ";
+			for (int i = 1; i < 5; i++)
+			{
+				cout <<i <<") "<< question.Answers[i] << endl;
+			}
+			cout << "What answer do you want in " << index << " place? ";
 
 			while (true)
 			{
@@ -389,7 +392,7 @@ public:
 					break;
 				}
 			}
-			swap(quest[index], quest[place]);
+			swap(question.Answers[index], question.Answers[place]);
 			index++;
 		}
 	}
@@ -397,28 +400,32 @@ public:
 	// Displays the question and answer(s)
 	virtual void Display()
 	{
-		int answer;
+		
+		cout << question.Question << endl;
 		for (int i = 1; i < 5; i++)
 		{
-			cout << i << ") Question " << quest[i].Question << endl;
-			for (int k = 1; k < 5; k++)
-			{
-				cout <<"    "<< k << ") " << quest[i].Answers[k] << endl;
-			}
+			cout << i << ") " << question.Answers[i] << endl;
+		}
 			while (true)
 			{
+				cout << "-->";
 				cin >> answer;
 				if ((ValidChoice(1, 4, answer)))
 				{
 					break;
 				}
 			}
-			
-		}
+		
 	}
 	virtual bool Answer()
 	{
-		return true;
+		if (question.Answers[answer] == question.CorrectAnswer)
+		{
+
+			return true;
+		}
+		else
+			return false;
 	}
 
 };
