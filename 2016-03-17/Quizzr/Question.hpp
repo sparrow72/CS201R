@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <string>
-#include <locale>
+
 
 using namespace std;
 
@@ -23,99 +23,88 @@ public:
 	virtual bool Answer() = 0;
 
 protected:
-	string question;
+	string question, answer0, answer1;
 };
 
 // Question with either TRUE or FALSE answer, only 1 correct
 class TrueFalse : public IQuestion
 {
-private:
-	string answer;
-	bool ans = false, ans1, loop = false;
-	locale loc;
-public:
-	virtual void CreateQuestion()
-	{
-		cout << "Please type in you question: ";
-		cin.ignore();
-		getline(cin, question);
-		cout << "Is the question true or false (ture/false): ";
-		loop = false;
-		do {///gets line of answer. repeats if the line does not start with t or f.
-			getline(cin, answer);
-			string::size_type i = 0;
-			switch (tolower(answer[i], loc))
-				///test the first key for correct input
-			{
-			case 't':
-				ans = true;
-				loop = true;
-				break;
-			case 'f':
-				ans = false;
-				loop = true;
-				break;
-			default:
-				loop = false;
-				cout << "Invalid, please try again\nIs the question true or false (ture/false): ";
-				break;
-			}
-		} while (!loop);
-	}
-	virtual void Display()
-	{
-		loop = false;
-		cout << "True or false: " << question;
-		do {///gets line of answer. repeats if the line does not start with t or f.
-			getline(cin, answer);
-			string::size_type i = 0;
-			switch (tolower(answer[i], loc))
-				///test the first key for correct input
-			{
-			case 't':
-				ans1 = true;
-				loop = true;
-				break;
-			case 'f':
-				ans1 = false;
-				loop = true;
-				break;
-			default:
-				loop = false;
-				cout << "Invalid, please try again\nIs the question true or false (ture/false): ";
-				break;
-			}
-		} while (!loop);
-	}
+	/*CreateQuestion() - Allow user to create question text.Answers will be True or False.Allow use to choose whether True or False is the correct answer for this question.
+	Display() - Display the question text and True or False.
+	Answer() - Have the user enter their answer, and check to see whether it is correct.Return true for correct and false for incorrect.
 
-	virtual bool Answer()
+	Question should display a question in the form of a statement.
+	Answers displayed will always be TRUE and FALSE.
+	Only one correct answer can be selected.*/
+public:
+	void CreateQuestion()
 	{
-		if (ans == ans1)
+
+		cout << "Create a question: ";
+		getline(cin, question);
+		cout << "What it the answer: ";
+		getline(cin, answer0);
+		cout << "What is a fake answer: ";
+		getline(cin, answer1);
+
+	}
+	void Display()
+	{
+		cout << "Quiz\nProblem 1: " << question << endl << answer0 << endl << answer1 << "1. True\n2. False";
+		int option;
+		bool loop = false;
+		cout << "Please enter your answer (1/2): ";
+		cin >> option;
+		
+		// switch
+		do {
+			switch (option) {
+			case 1:
+				Answer(answer0);
+				loop = true;
+				break;
+			case 2:
+				Answer(answer1);
+				loop = true;
+				break;
+			default:
+				cout << "Invalid\nPlease try again: ";
+				cin >> option;
+			}
+		} while (!loop);
+	}
+	
+	bool Answer(string a)
+	{
+		if (a == answer0)
 			return true;
 		else
 			return false;
 	}
+
+private:
+	
 };
 
 // Question with 4 possible answers, only 1 correct
 class MultipleChoice : public IQuestion
 {
 private:
-	string m_question;      //
-	string m_answers[4];     //change to vector
-	int NumQuestions;
-	string m_correct;
+    string m_question;      //
+    string m_answers[4];     //change to vector
+    int NumQuestions;
+    string m_correct;
 
 public:
-	MultipleChoice();
-	void SetQuestion(string question);
-	void SetAnswers(string answers, int index);
-	string GetQuestion();
-	string GetAnswers(int index);
+    MultipleChoice();
+    void SetQuestion(string question);
+    void SetAnswers(string answers, int index);
+    string GetQuestion();
+    string GetAnswers(int index);
 
-	virtual void CreateQuestion();
-	virtual void Display();
-	virtual bool Answer();
+    virtual void CreateQuestion();
+    virtual void Display();
+    virtual bool Answer();
 };
 
 // Question with 4 possible answers, 0 to 4 correct
@@ -126,21 +115,21 @@ private:
 	string question;
 	bool correct_ans[4];
 
-	void CreateQuestion()
+	void MultipleAnswer::CreateQuestion()
 	{
-
+		
 		cout << "Please type the question" << endl << ">> ";
-		getline(cin, question);
+		getline(cin,question);
 		for (int i = 0; i < 4; i++)
 		{
 			cout << "Please type a possible answers" << endl << ">> ";
-			getline(cin, answers[i]);
+			getline(cin,answers[i]);
 			while (true)
 			{
 				cout << "Is this a correct answer? (y/n)" << endl << ">> ";
 				char y_n;
 				cin >> y_n;
-
+			
 				if (y_n == 'y')
 				{
 					correct_ans[i] = true;
@@ -157,10 +146,10 @@ private:
 					continue;
 				}
 			}
-
+			
 		}
 	}
-	void Display()
+	void MultipleAnswer::Display()
 	{
 		cout << question << endl;
 		for (int i = 0; i < answers[4].size(); i++)
@@ -168,7 +157,7 @@ private:
 			cout << answers[i] << endl;
 		}
 	}
-	bool Answer()
+	bool MultipleAnswer::Answer()
 	{
 		cout << "Please enter all answers that are correct." << endl << ">> ";
 	}
@@ -194,12 +183,12 @@ public:
 
 		string* Questions = new string[numberOfQuestions];
 		string* Answers = new string[numberOfQuestions];
-
+		
 		m_question = " ";
 		m_answer = " ";
 	}
 
-	virtual ~FillInTheBlank()
+	virtual ~ FillInTheBlank()
 	{
 		delete[] Questions;
 		delete[] Answers;
@@ -249,7 +238,7 @@ public:
 				}
 			}
 		}
-
+		
 	}
 
 	virtual void Display()
@@ -335,9 +324,8 @@ private:
 	{
 		string Question;
 		string CorrectAnswer;
-		string Answers[5] = {" "," "," "," "," "};
+		vector <string> Answers;
 	};
-
 	bool ValidChoice(int min, int max, int choice)
 	{
 		if (choice < min || choice > max)
@@ -347,41 +335,98 @@ private:
 		}
 		return true;
 	}
-
-	vector<QA> quest;
-
+	int answer;
+	QA question;
 public:
 	// Display menus to have user enter question and answer(s)
 	virtual void CreateQuestion()
 	{
+		
+		bool Correct = false;
+		string buffer;
+		
+		cout <<"What is your question? ";
+		cin.ignore();
+		getline(cin,question.Question);
+		cout << endl;
+		question.Answers.push_back(" ");
 
+	
+		for (int i = 1; i < 5; i++)
+			{
+				cout << "What is the " << i << "  answers for this question? " << endl;
+				//cin.ignore();
+				getline(cin, buffer);
+
+				question.Answers.push_back(buffer);
+				if (!Correct){
+					cout << "Is this answer correct? Y/N ";
+					//cin >> buffer;
+					getline(cin, buffer);
+	
+					
+					if ((buffer == "Y" || buffer == "y"))
+					{
+						question.CorrectAnswer = question.Answers[i];
+						Correct = true;
+					}
+				}
+				cout << endl;
+			}
+		
+	
+		int index = 1;
+		int place;
+		while (index < 4)
+		{
+			for (int i = 1; i < 5; i++)
+			{
+				cout <<i <<") "<< question.Answers[i] << endl;
+			}
+			cout << "What answer do you want in " << index << " place? ";
+
+			while (true)
+			{
+				cin >> place;
+				if ((ValidChoice(1, 4, place)))
+				{
+					break;
+				}
+			}
+			swap(question.Answers[index], question.Answers[place]);
+			index++;
+		}
 	}
 
 	// Displays the question and answer(s)
 	virtual void Display()
 	{
-		int answer;
+		
+		cout << question.Question << endl;
 		for (int i = 1; i < 5; i++)
 		{
-			cout << i << ") Question " << quest[i].Question << endl;
-			for (int k = 1; k < 5; k++)
-			{
-				cout <<"    "<< k << ") " << quest[i].Answers[k] << endl;
-			}
+			cout << i << ") " << question.Answers[i] << endl;
+		}
 			while (true)
 			{
+				cout << "-->";
 				cin >> answer;
 				if ((ValidChoice(1, 4, answer)))
 				{
 					break;
 				}
 			}
-
-		}
+		
 	}
 	virtual bool Answer()
 	{
-		return true;
+		if (question.Answers[answer] == question.CorrectAnswer)
+		{
+
+			return true;
+		}
+		else
+			return false;
 	}
 
 };
