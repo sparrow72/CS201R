@@ -8,6 +8,8 @@ class object.
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <sstream>
 using namespace std;
 
 class MenuOption
@@ -153,12 +155,17 @@ void Menu::ClearScreen()
 
 string Menu::IntToString( int num )
 {
-    return to_string( num );
+    stringstream ss;
+    ss << num;
+    return ss.str();
 }
 
 int Menu::StringToInt( const string& str )
 {
-    return stoi( str );
+    istringstream ss( str );
+    int val;
+    ss >> val;
+    return val;
 }
 
 #endif
