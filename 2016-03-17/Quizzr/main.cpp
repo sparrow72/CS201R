@@ -18,7 +18,7 @@ int main()
         "Run quiz"
     };
 
-    // Question Creation
+     Question Creation
 
     bool creatingQuestions = true;
     while ( creatingQuestions )
@@ -37,11 +37,11 @@ int main()
         }
     }
 
-    // Display Quiz
+     Display Quiz
 
     RunQuiz( questions );
 
-    // Clear
+     Clear
 
     FreeMemory( questions );
 
@@ -68,33 +68,39 @@ void CreateQuestion( vector<IQuestion*>& questions )
     IQuestion* question = NULL;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
     {
-       question = new TrueFalse;
+       /*question = new TrueFalse;*/
     }
     else if ( questionTypes[ choice ].key == "MULTI_CHOICE" )
     {
-//        question = new MultipleChoice;
+        question = new MultipleChoice;
     }
     else if ( questionTypes[ choice ].key == "MULTI_ANSWER" )
     {
-//        question = new MultipleAnswer;
+        question = new MultipleAnswer;
     }
-    else if ( questionTypes[ choice ].key == "BLANK" )
+    /*else if ( questionTypes[ choice ].key == "BLANK" )
     {
         question = new FillInTheBlank;
-    }
-    else if ( questionTypes[ choice ].key == "ESSAY" )
+    }*/
+   /* else if ( questionTypes[ choice ].key == "ESSAY" )
     {
 		question = new Essay;
 		question->CreateQuestion();
 		question->Display();
 		question->Answer();
-    }
-    else if ( questionTypes[ choice ].key == "ORDER" )
+    }*/
+   /* else if ( questionTypes[ choice ].key == "ORDER" )
     {
 		question = new Ordering;
+<<<<<<< Updated upstream
 
 	}
 
+=======
+		
+	}*/
+    
+>>>>>>> Stashed changes
     else if ( questionTypes[ choice ].key == "BLANK3" )
     {
 //        question = new ThreeBlanks;

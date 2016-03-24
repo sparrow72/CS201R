@@ -10,22 +10,23 @@ using namespace std;
 class IQuestion
 {
 public:
-	// Display menus to have user enter question and answer(s)
+	 Display menus to have user enter question and answer(s)
 	virtual void CreateQuestion() = 0;
 
-	// Displays the question and answer(s)
+	 Displays the question and answer(s)
 	virtual void Display() = 0;
 
-	// Displays menus to have user to enter the answer(s)
-	// Returns true if they answered correctly,
-	// otherwise false
+	 Displays menus to have user to enter the answer(s)
+	 Returns true if they answered correctly,
+	 otherwise false
 	virtual bool Answer() = 0;
 
 protected:
 	string question;
 };
 
-// Question with either TRUE or FALSE answer, only 1 correct
+ Question with either TRUE or FALSE answer, only 1 correct
+<<<<<<< Updated upstream
 class TrueFalse : public IQuestion
 {
 private:
@@ -96,6 +97,95 @@ public:
 	}
 };
 
+ Question with 4 possible answers, only 1 correct
+class MultipleChoice : public IQuestion
+{
+private:
+	string m_question;      //
+	string m_answers[4];     //change to vector
+	int NumQuestions;
+	string m_correct;
+
+public:
+	MultipleChoice();
+	void SetQuestion(string question);
+	void SetAnswers(string answers, int index);
+	string GetQuestion();
+	string GetAnswers(int index);
+
+	virtual void CreateQuestion();
+	virtual void Display();
+	virtual bool Answer();
+};
+=======
+class TrueFalse : public IQuestion
+{
+private:
+	string answer;
+	bool ans = false, ans1, loop = false;
+	locale loc;
+public:
+	virtual void CreateQuestion()
+	{
+		cout << "Please typed in you question: ";
+		getline(cin, question);
+		cout << "Is the question true or false (ture/false): ";
+
+		do {///gets line of answer. repeats if the line does not start with t or f.
+			getline(cin, answer);
+			string::size_type i = 0;
+			switch (tolower(answer[i], loc))
+				///test the first key for correct input
+			{
+			case 't':
+				ans = true;
+				loop = true;
+				break;
+			case 'f':
+				ans = false;
+				loop = true;
+				break;
+			default:
+				loop = false;
+				cout << "Invalid, please try again\nIs the question true or false (ture/false): ";
+				break;
+			}
+		} while (!loop);
+	}
+	virtual void Display()
+	{
+		cout << "True or false: " << question;
+		do {///gets line of answer. repeats if the line does not start with t or f.
+			getline(cin, answer);
+			string::size_type i = 0;
+			switch (tolower(answer[i], loc))
+				///test the first key for correct input
+			{
+			case 't':
+				ans1 = true;
+				loop = true;
+				break;
+			case 'f':
+				ans1 = false;
+				loop = true;
+				break;
+			default:
+				loop = false;
+				cout << "Invalid, please try again\nIs the question true or false (ture/false): ";
+				break;
+			}
+		} while (!loop);
+	}
+
+	virtual bool Answer()
+	{
+		if (ans == ans1)
+			return true;
+		else
+			return false;
+	}
+};
+
 // Question with 4 possible answers, only 1 correct
 class MultipleChoice : public IQuestion
 {
@@ -116,46 +206,45 @@ public:
 	virtual void Display();
 	virtual bool Answer();
 };
+>>>>>>> Stashed changes
 
-// Question with 4 possible answers, 0 to 4 correct
+ Question with 4 possible answers, 0 to 4 correct
 class MultipleAnswer : public IQuestion
 {
 private:
 	string answers[4];
 	string question;
 	bool correct_ans[4];
-
+public:
 	void CreateQuestion()
 	{
 
 		cout << "Please type the question" << endl << ">> ";
+		cin.ignore();
 		getline(cin, question);
 		for (int i = 0; i < 4; i++)
 		{
+			
 			cout << "Please type a possible answers" << endl << ">> ";
 			getline(cin, answers[i]);
-			while (true)
-			{
-				cout << "Is this a correct answer? (y/n)" << endl << ">> ";
-				char y_n;
-				cin >> y_n;
+			cout << "Is this a correct answer? (y/n)" << endl << ">> ";
+			char y_n;
+			cin >> y_n;
+			cin.ignore();
 
-				if (y_n == 'y')
-				{
-					correct_ans[i] = true;
-					break;
-				}
-				else if (y_n == 'n')
-				{
-					correct_ans[i] = false;
-					break;
-				}
-				else
-				{
-					cout << "Invalid choice. Please type 'y' or 'n'.";
-					continue;
-				}
+			if (y_n == 'y')
+			{
+				correct_ans[i] = true;
 			}
+			else if (y_n == 'n')
+			{
+				correct_ans[i] = false;
+			}
+			else
+			{
+				cout << "Invalid choice. Please type 'y' or 'n'.";
+			}
+			
 
 		}
 	}
@@ -164,16 +253,37 @@ private:
 		cout << question << endl;
 		for (int i = 0; i < answers[4].size(); i++)
 		{
-			cout << answers[i] << endl;
+			cout << i+1<<answers[i] << endl;
 		}
 	}
 	bool Answer()
 	{
-		cout << "Please enter all answers that are correct." << endl << ">> ";
+		
+		while (true)
+		{
+			cout << "What is your answer?" << endl << ">>";
+			char user_answer;
+			cin >> user_answer;
+			cout << "Add another answer?" << endl << ">>";
+			if (y_n == 'y')
+			{
+				continue;
+			}
+			else if (y_n == 'n')
+			{
+				break;
+			}
+			else
+			{
+				cout << "Invalid choice. Please type 'y' or 'n'.";
+			}
+		}
+		
+		return true;
 	}
 };
 
-// Question where user fills in one word as answer, compare to stored answer text
+ Question where user fills in one word as answer, compare to stored answer text
 class FillInTheBlank : public IQuestion
 {
 private:
