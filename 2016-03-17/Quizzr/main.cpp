@@ -68,7 +68,7 @@ void CreateQuestion( vector<IQuestion*>& questions )
     IQuestion* question;
     if ( questionTypes[ choice ].key == "TRUE_FALSE" )
     {
-//        question = new TrueFalse;
+       question = new TrueFalse;
     }
     else if ( questionTypes[ choice ].key == "MULTI_CHOICE" )
     {
@@ -119,6 +119,7 @@ void RunQuiz( vector<IQuestion*>& questions )
 
     int result = score / questions.size() * 100;
     cout << "Your score: " << result << "%" << endl;
+	system("pause");
 }
 
 void FreeMemory( vector<IQuestion*>& questions )

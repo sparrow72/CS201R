@@ -35,7 +35,8 @@ private:
 public:
 	virtual void CreateQuestion()
 	{
-		cout << "Please typed in you question: ";
+		cout << "Please type in you question: ";
+		cin.ignore();
 		getline(cin, question);
 		cout << "Is the question true or false (ture/false): ";
 		loop = false;
