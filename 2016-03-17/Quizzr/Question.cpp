@@ -1,9 +1,10 @@
 #include "Question.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //MultipleChoice()
 //{
 //    string m_question = " ";
@@ -142,49 +143,46 @@ using namespace std;
 
 
 
+
+//=======
+//MultipleChoice::MultipleChoice()
+//{
+//    string m_question = " ";
+//    string m_answers[4] = " ";
+//    int NumQuestions = 0;
+//}
+//void MultipleChoice::SetQuestion(string question)
+//{
+//    m_question = question;
+//}
+//void MultipleChoice::SetAnswers(string answers, int index)
+//{
+//    m_answers = answers[index];
+//}
+//string MultipleChoice::GetQuestion()
+//{
+//    return m_question;
+//}
+//string MultipleChoice::GetAnswers(int index)
+//>>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
+//{
+//	numberOfQuestions = 10;
+//
+//	string* Questions = NULL;
+//	string* Answers = NULL;
+//
+//	m_question = " ";
+//	m_answer = " ";
+//}
+//<<<<<<< HEAD
+
 FillInTheBlank::FillInTheBlank()
-=======
-MultipleChoice::MultipleChoice()
 {
-    string m_question = " ";
-    string m_answers[4] = " ";
-    int NumQuestions = 0;
+	string m_question = " ";
+	string m_answer = " ";
+	string m_userAnswer = " ";
 }
-void MultipleChoice::SetQuestion(string question)
-{
-    m_question = question;
-}
-void MultipleChoice::SetAnswers(string answers, int index)
-{
-    m_answers = answers[index];
-}
-string MultipleChoice::GetQuestion()
-{
-    return m_question;
-}
-string MultipleChoice::GetAnswers(int index)
->>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
-{
-	numberOfQuestions = 10;
 
-	string* Questions = NULL;
-	string* Answers = NULL;
-
-	m_question = " ";
-	m_answer = " ";
-}
-<<<<<<< HEAD
-
-FillInTheBlank::~FillInTheBlank()
-{
-	delete[] Questions;
-	delete[] Answers;
-	delete[] UserAnswers;
-
-	Questions = NULL;
-	Answers = NULL;
-	UserAnswers = NULL;
-}
 
 void FillInTheBlank::CreateQuestion()
 {
@@ -192,8 +190,6 @@ void FillInTheBlank::CreateQuestion()
 	bool addQuestion = true;
 	string userValidation;
 
-	string* Questions = new string[numberOfQuestions];
-	string* Answers = new string[numberOfQuestions];
 
 	while (addQuestion)
 	{
@@ -201,11 +197,11 @@ void FillInTheBlank::CreateQuestion()
 		cout << "Please enter a Fill in the Blank Question: ";
 		cin.ignore();
 		getline(cin, m_question);
-		Questions[numberOfQuestions - 1] = m_question;
+		Questions.push_back(m_question);
 
 		cout << "Answer: ";
 		cin >> m_answer;
-		Answers[numberOfQuestions - 1] = m_answer;
+		Answers.push_back(m_answer);
 
 
 		while (checkInput)
@@ -217,7 +213,6 @@ void FillInTheBlank::CreateQuestion()
 				{
 					addQuestion = false;
 					checkInput = false;
-					string* UserAnswers = new string[numberOfQuestions];
 				}
 				else if ((userValidation == "Yes" || userValidation == "Y" || userValidation == "y"))
 				{
@@ -241,121 +236,7 @@ void FillInTheBlank::Display()
 	{
 		cout << Questions[i] << endl << endl;
 	}
-=======
-void MultipleChoice::CreateQuestion()
-{
-    bool done = false;
-    while(!done)
-    {
-        cout << "1. Add Question " << endl;
-        cout << "2. Save and quit " << endl;
 
-        int choice;
-        cin >> choice;
-        while(choice !=1 || choice != 2)
-        {
-            cout << "Invalid option. Choose again: ";
-            cin >> choice;
-        }
-        if(choice == 1)
-        {
-            MultipleChoice question;
-            string Quest;
-
-            cout << "Question: ";
-            getline(cin,Quest);
-
-            question.SetQuestion(Quest);
-
-             int index;
-            string answers;
-
-            for(int i = 0; i < 4; i++)
-                {
-                cout << "Answer " << i + 1 << ": ";
-                getline(cin, answers);
-                question.SetAnswers(answers, i);
-                }
-
-                int answer;
-                cout << "Correct Answer: ";
-                cin >> index;
-                question.CorrectAnswer(index-1);
-                while(index < 1 || index > 5)
-                {
-                    cout << "Invalid option. Choose again: ";
-                    cin >> index;
-                }
-
-
-            NumQuestions++;
-        }
-        else if(choice == 2)
-        {
-            done = true;
-        }
-
-    }
-}
-void MultipleChoice::Display()
-{
-    MultipleChoice item[NumQuestions];
-    int correct;
-
-    for(int i = 0; i < NumQuestions; i
-    {
-        cout << item[i].GetQuestion() << endl;;
-        for(int j=0; j < 4; j++)
-        {
-            cout << "\t" << item[i].GetAnswers(j) << endl;;
-        }
-
-    }
-}
-bool MultipleChoice::Answer()
-{
-    MultipleChoice item;
-    cout << "What is the correct answer? " << end;
-    cin >> correct;
-
-        if(item.IsCorrect(correct) == true)
-        {
-            cout << "Correct " << endl;
-        }
-        else
-        {
-            cout << "Incorrect " << endl;
-        }
-
-}
-bool MultipleChoice::IsCorrect(int answer)
-{
-    if(m_question[answer] == m_correct)
-    {
-        return true;
-    }
-    return false;
-}
-void MultipleChoice::CorrectAnswer(int index)
-{
-    m_correct = m_question[index];
-}
-
-/*void ThreeBlanks::CreateQuestion() {
-	cout << "Please enter the question below: " << endl;
-	getline(cin, m_question);
-	cout << endl;
-	cout << "Enter the 3 answers" << endl;
-	cout << "A1. ";
-	getline(cin, m_a1);
-	cout << endl;
-	cout << "A2. ";
-	getline(cin, m_a2);
-	cout << endl;
-	cout << "A3. ";
-	getline(cin, m_a3);
-	cout << endl;
->>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
 }
 
 bool FillInTheBlank::Answer()
@@ -380,6 +261,125 @@ bool FillInTheBlank::Answer()
 			return false;
 		}
 	}
+}
+//=======
+//void MultipleChoice::CreateQuestion()
+//{
+//    bool done = false;
+//    while(!done)
+//    {
+//        cout << "1. Add Question " << endl;
+//        cout << "2. Save and quit " << endl;
+//
+//        int choice;
+//        cin >> choice;
+//        while(choice !=1 || choice != 2)
+//        {
+//            cout << "Invalid option. Choose again: ";
+//            cin >> choice;
+//        }
+//        if(choice == 1)
+//        {
+//            MultipleChoice question;
+//            string Quest;
+//
+//            cout << "Question: ";
+//            getline(cin,Quest);
+//
+//            question.SetQuestion(Quest);
+//
+//             int index;
+//            string answers;
+//
+//            for(int i = 0; i < 4; i++)
+//                {
+//                cout << "Answer " << i + 1 << ": ";
+//                getline(cin, answers);
+//                question.SetAnswers(answers, i);
+//                }
+//
+//                int answer;
+//                cout << "Correct Answer: ";
+//                cin >> index;
+//                question.CorrectAnswer(index-1);
+//                while(index < 1 || index > 5)
+//                {
+//                    cout << "Invalid option. Choose again: ";
+//                    cin >> index;
+//                }
+//
+//
+//            NumQuestions++;
+//        }
+//        else if(choice == 2)
+//        {
+//            done = true;
+//        }
+//
+//    }
+//}
+//void MultipleChoice::Display()
+//{
+//    MultipleChoice item[NumQuestions];
+//    int correct;
+//
+//    for(int i = 0; i < NumQuestions; i
+//    {
+//        cout << item[i].GetQuestion() << endl;;
+//        for(int j=0; j < 4; j++)
+//        {
+//            cout << "\t" << item[i].GetAnswers(j) << endl;;
+//        }
+//
+//    }
+//}
+//bool MultipleChoice::Answer()
+//{
+//    MultipleChoice item;
+//    cout << "What is the correct answer? " << end;
+//    cin >> correct;
+//
+//        if(item.IsCorrect(correct) == true)
+//        {
+//            cout << "Correct " << endl;
+//        }
+//        else
+//        {
+//            cout << "Incorrect " << endl;
+//        }
+//
+//}
+//bool MultipleChoice::IsCorrect(int answer)
+//{
+//    if(m_question[answer] == m_correct)
+//    {
+//        return true;
+//    }
+//    return false;
+//}
+//void MultipleChoice::CorrectAnswer(int index)
+//{
+//    m_correct = m_question[index];
+//}
+
+//void ThreeBlanks::CreateQuestion() {
+	//cout << "Please enter the question below: " << endl;
+	//getline(cin, m_question);
+	/*cout << endl;
+	cout << "Enter the 3 answers" << endl;
+	cout << "A1. ";
+	getline(cin, m_a1);
+	cout << endl;
+	cout << "A2. ";
+	getline(cin, m_a2);
+	cout << endl;
+	cout << "A3. ";
+	getline(cin, m_a3);
+	cout << endl;
+>>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
+}
+
+
 <<<<<<< HEAD
 }
 =======
@@ -392,6 +392,6 @@ bool FillInTheBlank::Answer()
 	else {
 		return true;
 	}
-}
+}*/
 
->>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
+//>>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
