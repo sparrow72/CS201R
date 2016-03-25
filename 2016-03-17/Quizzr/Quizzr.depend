@@ -43,7 +43,8 @@
 
 1458866983 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleAnswer.hpp
 
-1458866990 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleChoice.hpp
+1458867873 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleChoice.hpp
+	"IQuestion.hpp"
 
 1458867384 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/Ordering.hpp
 	<string>
@@ -64,5 +65,9 @@
 
 1458867411 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/Ordering.cpp
 	"Ordering.hpp"
+	<iostream>
+
+1458867526 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/Essay.cpp
+	"Essay.hpp"
 	<iostream>
 
