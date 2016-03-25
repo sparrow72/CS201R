@@ -60,7 +60,9 @@
 1458867183 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/IQuestion.hpp
 	<string>
 
-1458867003 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/TrueFalse.hpp
+1458868339 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/TrueFalse.hpp
+	<locale>
+	"IQuestion.hpp"
 
 1458867196 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/ThreeBlanks.cpp
 	"ThreeBlanks.hpp"
@@ -81,5 +83,13 @@
 
 1458868134 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleAnswer.cpp
 	"MultipleAnswer.hpp"
+	<iostream>
+
+1458868244 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/FillInTheBlank.cpp
+	"FillInTheBlank.hpp"
+	<iostream>
+
+1458868347 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/TrueFalse.cpp
+	"TrueFalse.hpp"
 	<iostream>
 
