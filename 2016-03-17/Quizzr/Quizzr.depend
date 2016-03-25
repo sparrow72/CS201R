@@ -41,7 +41,8 @@
 
 1458866976 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/FillInTheBlank.hpp
 
-1458866983 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleAnswer.hpp
+1458868106 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleAnswer.hpp
+	"IQuestion.hpp"
 
 1458867873 /home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleChoice.hpp
 	"IQuestion.hpp"
@@ -70,4 +71,9 @@
 1458867526 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/Essay.cpp
 	"Essay.hpp"
 	<iostream>
+
+1458867895 source:/home/rejcx/PROJECTS/Teaching/CS201R/2016-03-17/Quizzr/Questions/MultipleChoice.cpp
+	"MultipleChoice.hpp"
+	<iostream>
+	<string>
 
