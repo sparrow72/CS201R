@@ -16,12 +16,14 @@ private:
 	{
 		string Question;
 		string CorrectAnswer;
-		string Answers[5] = {" "," "," "," "," "};
+		vector <string> Answers;
 	};
 
 	bool ValidChoice(int min, int max, int choice);
 
 	vector<QA> quest;
+	int answer;
+	QA question;
 
 public:
 	// Display menus to have user enter question and answer(s)

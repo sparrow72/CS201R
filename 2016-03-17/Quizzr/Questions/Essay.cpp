@@ -26,6 +26,7 @@ bool Essay::Answer()
     cin.ignore();
     getline(cin, answer);
 
+    cout << "Correct: \"" << correctAnswer << "\" \t Answered: \"" << answer << "\"" << endl;
 
     if (answer == correctAnswer)
     {

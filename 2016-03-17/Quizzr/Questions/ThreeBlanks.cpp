@@ -42,6 +42,9 @@ bool ThreeBlanks::Answer() {
 	getline(cin, m_r3);
 	cout << endl;
 
+	cout << "ANSWERED: '" << m_r1 << "', '" << m_r2 << "', '" << m_r3 << "'." << endl;
+	cout << "CORRECT : '" << m_a1 << "', '" << m_a2 << "', '" << m_a3 << "'." << endl;
+
 	if (m_a1 != m_r1) {
 		return false;
 	}

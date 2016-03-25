@@ -1,7 +1,10 @@
 #include "Ordering.hpp"
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+#include "../Menu.hpp"
 
 bool Ordering::ValidChoice(int min, int max, int choice)
 {
@@ -15,32 +18,88 @@ bool Ordering::ValidChoice(int min, int max, int choice)
 
 void Ordering::CreateQuestion()
 {
+    bool Correct = false;
+    string buffer;
 
+    cout <<"What is your question? ";
+    cin.ignore();
+    getline(cin,question.Question);
+    cout << endl;
+    question.Answers.push_back(" ");
+
+
+    for (int i = 1; i < 5; i++)
+        {
+            cout << "What is the " << i << "  answers for this question? " << endl;
+            //cin.ignore();
+            getline(cin, buffer);
+
+            question.Answers.push_back(buffer);
+            if (!Correct){
+                cout << "Is this answer correct? Y/N ";
+                //cin >> buffer;
+                getline(cin, buffer);
+
+
+                if ((buffer == "Y" || buffer == "y"))
+                {
+                    question.CorrectAnswer = question.Answers[i];
+                    Correct = true;
+                }
+            }
+            cout << endl;
+        }
+
+
+    int index = 1;
+    int place;
+    while (index < 4)
+    {
+        for (int i = 1; i < 5; i++)
+        {
+            cout <<i <<") "<< question.Answers[i] << endl;
+        }
+        cout << "What answer do you want in " << index << " place? ";
+
+        while (true)
+        {
+            cin >> place;
+            if ((ValidChoice(1, 4, place)))
+            {
+                break;
+            }
+        }
+        swap(question.Answers[index], question.Answers[place]);
+        index++;
+    }
+
+    Menu::Pause();
 }
 
 // Displays the question and answer(s)
 void Ordering::Display()
 {
-    int answer;
+    cout << question.Question << endl;
     for (int i = 1; i < 5; i++)
     {
-        cout << i << ") Question " << quest[i].Question << endl;
-        for (int k = 1; k < 5; k++)
+        cout << i << ") " << question.Answers[i] << endl;
+    }
+    while (true)
+    {
+        cout << "-->";
+        cin >> answer;
+        if ((ValidChoice(1, 4, answer)))
         {
-            cout <<"    "<< k << ") " << quest[i].Answers[k] << endl;
+            break;
         }
-        while (true)
-        {
-            cin >> answer;
-            if ((ValidChoice(1, 4, answer)))
-            {
-                break;
-            }
-        }
-
     }
 }
 bool Ordering::Answer()
 {
-    return true;
+    if (question.Answers[answer] == question.CorrectAnswer)
+    {
+        return true;
+    }
+    else
+        return false;
 }
