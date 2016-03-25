@@ -5,24 +5,10 @@ using namespace std;
 
 FillInTheBlank::FillInTheBlank()
 {
-	numberOfQuestions = 10;
-
-	string* Questions = NULL;
-	string* Answers = NULL;
-
 	m_question = " ";
 	m_answer = " ";
-}
-
-FillInTheBlank::~FillInTheBlank()
-{
-	delete[] Questions;
-	delete[] Answers;
-	delete[] UserAnswers;
-
-	Questions = NULL;
-	Answers = NULL;
-	UserAnswers = NULL;
+	m_userAnswer = " ";
+	m_numberOfQuestions = 1;
 }
 
 void FillInTheBlank::CreateQuestion()
@@ -31,8 +17,6 @@ void FillInTheBlank::CreateQuestion()
 	bool addQuestion = true;
 	string userValidation;
 
-	string* Questions = new string[numberOfQuestions];
-	string* Answers = new string[numberOfQuestions];
 
 	while (addQuestion)
 	{
@@ -40,11 +24,11 @@ void FillInTheBlank::CreateQuestion()
 		cout << "Please enter a Fill in the Blank Question: ";
 		cin.ignore();
 		getline(cin, m_question);
-		Questions[numberOfQuestions - 1] = m_question;
+		Questions.push_back(m_question);
 
 		cout << "Answer: ";
 		cin >> m_answer;
-		Answers[numberOfQuestions - 1] = m_answer;
+		Answers.push_back(m_answer);
 
 
 		while (checkInput)
@@ -52,17 +36,16 @@ void FillInTheBlank::CreateQuestion()
 			cout << "Would you like to add another question? Yes or No ";
 			cin >> userValidation;
 
-				if (userValidation == "No" || userValidation == "N" || userValidation == "n")
+				if (userValidation == "No" || userValidation == "no" || userValidation == "N" || userValidation == "n")
 				{
 					addQuestion = false;
 					checkInput = false;
-					string* UserAnswers = new string[numberOfQuestions];
 				}
-				else if ((userValidation == "Yes" || userValidation == "Y" || userValidation == "y"))
+				else if ((userValidation == "Yes" || userValidation == "yes" || userValidation == "Y" || userValidation == "y"))
 				{
 					addQuestion = true;
 					checkInput = false;
-					numberOfQuestions++;
+					m_numberOfQuestions++;
 				}
 				else
 				{
@@ -76,7 +59,7 @@ void FillInTheBlank::CreateQuestion()
 void FillInTheBlank::Display()
 {
 
-	for (int i = 0; i < numberOfQuestions; i++)
+	for (int i = 0; i < m_numberOfQuestions; i++)
 	{
 		cout << Questions[i] << endl << endl;
 	}
@@ -86,12 +69,13 @@ bool FillInTheBlank::Answer()
 {
 	int numberOfCorrectAnswers = 0;
 	cout << "Please enter your answers:";
-	for (int i = 0; i < numberOfQuestions; i++)
+	for (int i = 0; i < m_numberOfQuestions; i++)
 	{
 		cout << (i + 1) + ". ";
-		cin >> UserAnswers[i];
+		cin >> m_userAnswer;
+		userAnswers.push_back(m_userAnswer);
 
-		if (UserAnswers[i] == Answers[i])
+		if (userAnswers[i] == Answers[i])
 		{
 			cout << endl;
 			cout << "Correct!" << endl;
