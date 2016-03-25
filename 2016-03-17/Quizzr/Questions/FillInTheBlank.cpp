@@ -5,25 +5,11 @@ using namespace std;
 
 FillInTheBlank::FillInTheBlank()
 {
-	numberOfQuestions = 10;
-
-	string* Questions = NULL;
-	string* Answers = NULL;
-
-	m_question = " ";
-	m_answer = " ";
+	string m_question = " ";
+	string m_answer = " ";
+	string m_userAnswer = " ";
 }
 
-FillInTheBlank::~FillInTheBlank()
-{
-	delete[] Questions;
-	delete[] Answers;
-	delete[] UserAnswers;
-
-	Questions = NULL;
-	Answers = NULL;
-	UserAnswers = NULL;
-}
 
 void FillInTheBlank::CreateQuestion()
 {
@@ -31,8 +17,6 @@ void FillInTheBlank::CreateQuestion()
 	bool addQuestion = true;
 	string userValidation;
 
-	string* Questions = new string[numberOfQuestions];
-	string* Answers = new string[numberOfQuestions];
 
 	while (addQuestion)
 	{
@@ -40,11 +24,11 @@ void FillInTheBlank::CreateQuestion()
 		cout << "Please enter a Fill in the Blank Question: ";
 		cin.ignore();
 		getline(cin, m_question);
-		Questions[numberOfQuestions - 1] = m_question;
+		Questions.push_back(m_question);
 
 		cout << "Answer: ";
 		cin >> m_answer;
-		Answers[numberOfQuestions - 1] = m_answer;
+		Answers.push_back(m_answer);
 
 
 		while (checkInput)
@@ -56,7 +40,6 @@ void FillInTheBlank::CreateQuestion()
 				{
 					addQuestion = false;
 					checkInput = false;
-					string* UserAnswers = new string[numberOfQuestions];
 				}
 				else if ((userValidation == "Yes" || userValidation == "Y" || userValidation == "y"))
 				{
@@ -80,6 +63,7 @@ void FillInTheBlank::Display()
 	{
 		cout << Questions[i] << endl << endl;
 	}
+
 }
 
 bool FillInTheBlank::Answer()

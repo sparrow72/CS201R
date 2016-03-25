@@ -31,8 +31,24 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.hpp" />
 		<Unit filename="Question.hpp" />
+		<Unit filename="Questions/Essay.cpp" />
+		<Unit filename="Questions/Essay.hpp" />
+		<Unit filename="Questions/FillInTheBlank.cpp" />
+		<Unit filename="Questions/FillInTheBlank.hpp" />
+		<Unit filename="Questions/IQuestion.hpp" />
+		<Unit filename="Questions/MultipleAnswer.cpp" />
+		<Unit filename="Questions/MultipleAnswer.hpp" />
+		<Unit filename="Questions/MultipleChoice.cpp" />
+		<Unit filename="Questions/MultipleChoice.hpp" />
+		<Unit filename="Questions/Ordering.cpp" />
+		<Unit filename="Questions/Ordering.hpp" />
+		<Unit filename="Questions/ThreeBlanks.cpp" />
+		<Unit filename="Questions/ThreeBlanks.hpp" />
+		<Unit filename="Questions/TrueFalse.cpp" />
+		<Unit filename="Questions/TrueFalse.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
