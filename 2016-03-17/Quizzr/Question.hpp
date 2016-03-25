@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef _QUESTION
 #define _QUESTION
 #include <iostream>
@@ -624,4 +625,17 @@ public:
 //};
 //*/
 //>>>>>>> fd18fe56776a50f74343f27df813ac23a92feb36
+=======
+#ifndef QUESTION_HPP
+#define QUESTION_HPP
+
+#include "Questions/Essay.hpp"
+#include "Questions/FillInTheBlank.hpp"
+#include "Questions/MultipleAnswer.hpp"
+#include "Questions/MultipleChoice.hpp"
+#include "Questions/Ordering.hpp"
+#include "Questions/ThreeBlanks.hpp"
+#include "Questions/TrueFalse.hpp"
+
+>>>>>>> 6b643963c97133edb1d5a99b686c3aab27542aa2
 #endif
