@@ -66,15 +66,15 @@ void CreateQuestion(vector<IQuestion*>& questions)
 	IQuestion* question = NULL;
 	if (questionTypes[choice].key == "TRUE_FALSE")
 	{
-		question = new TrueFalse;
+		//question = new TrueFalse;
 	}
 	else if (questionTypes[choice].key == "MULTI_CHOICE")
 	{
-		question = new MultipleChoice;
+		//question = new MultipleChoice;
 	}
 	else if (questionTypes[choice].key == "MULTI_ANSWER")
 	{
-		question = new MultipleAnswer;
+		//question = new MultipleAnswer;
 	}
 	else if (questionTypes[choice].key == "BLANK")
 	{
@@ -82,15 +82,15 @@ void CreateQuestion(vector<IQuestion*>& questions)
 	}
 	else if (questionTypes[choice].key == "ESSAY")
 	{
-		question = new Essay;
+		//question = new Essay;
 	}
 	else if (questionTypes[choice].key == "ORDER")
 	{
-		question = new Ordering;
+		//question = new Ordering;
 	}
 	else if (questionTypes[choice].key == "BLANK3")
 	{
-		question = new ThreeBlanks;
+		//question = new ThreeBlanks;
 	}
 
 
