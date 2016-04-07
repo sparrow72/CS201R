@@ -24,7 +24,7 @@ public:
 protected:
 	string question, answer0, answer1;
 };
-<<<<<<< HEAD
+
 /*
 // Question with either TRUE or FALSE answer, only 1 correct
 =======
@@ -103,7 +103,6 @@ public:
 class MultipleChoice : public IQuestion
 {
 private:
-<<<<<<< HEAD
 	string m_question;
 	string m_answers[4];
 	int NumQuestions;
@@ -121,30 +120,9 @@ public:
 	virtual void CreateQuestion();
 	virtual void Display();
 	virtual bool Answer();
-=======
-    string m_question;      //
-    string m_answers[4];     //change to vector
-    int NumQuestions;
-    string m_correct;
-
-public:
-    MultipleChoice();
-    void SetQuestion(string question);
-    void SetAnswers(string answers, int index);
-    string GetQuestion();
-    string GetAnswers(int index);
-
-    virtual void CreateQuestion();
-    virtual void Display();
-    virtual bool Answer();
->>>>>>> 3913735952144ac1f26fa432d2a9d6c63902a5b6
 };
-<<<<<<< HEAD
+
 /*
-=======
-
-
->>>>>>> 2302c4b953085a8b86b443d89f2e99b0174d5f24
 // Question with 4 possible answers, 0 to 4 correct
 class MultipleAnswer : public IQuestion
 {
@@ -156,14 +134,14 @@ private:
 public:
 	void CreateQuestion()
 	{
-		
+
 		cout << "Please type the question" << endl << ">> ";
 
 		cin.ignore();
 		getline(cin, question);
 		for (int i = 0; i < 4; i++)
 		{
-			
+
 			cout << "Please type a possible answers" << endl << ">> ";
 			getline(cin, answers[i]);
 			cout << "Is this a correct answer? (y/n)" << endl << ">> ";
@@ -183,7 +161,7 @@ public:
 			{
 				cout << "Invalid choice. Please type 'y' or 'n'.";
 			}
-			
+
 
 
 		}
@@ -198,7 +176,7 @@ public:
 	}
 	bool MultipleAnswer::Answer()
 	{
-		
+
 		while (true)
 		{
 			cout << "What is your answer?" << endl << ">>";
@@ -218,7 +196,7 @@ public:
 				cout << "Invalid choice. Please type 'y' or 'n'.";
 			}
 		}
-		
+
 		return true;
 	}
 };
@@ -243,7 +221,7 @@ public:
 
 		string* Questions = new string[numberOfQuestions];
 		string* Answers = new string[numberOfQuestions];
-		
+
 		m_question = " ";
 		m_answer = " ";
 	}
@@ -298,7 +276,7 @@ public:
 				}
 			}
 		}
-		
+
 	}
 
 	virtual void Display()
@@ -349,7 +327,7 @@ public:
 		cout << "\n" << "Enter the correct answer to your question  >> ";
 		cin.ignore();
 		getline(cin, correctAnswer);
-		
+
 	}
 
 	virtual void Display()
@@ -362,8 +340,8 @@ public:
 		cout << "Enter the correct answer  >> ";
 		cin.ignore();
 		getline(cin, answer);
-		
-		
+
+
 		if (answer == correctAnswer)
 		{
 			return true;
@@ -405,17 +383,17 @@ public:
 	// Display menus to have user enter question and answer(s)
 	virtual void CreateQuestion()
 	{
-		
+
 		bool Correct = false;
 		string buffer;
-		
+
 		cout <<"What is your question? ";
 		cin.ignore();
 		getline(cin,question.Question);
 		cout << endl;
 		question.Answers.push_back(" ");
 
-	
+
 		for (int i = 1; i < 5; i++)
 			{
 				cout << "What is the " << i << "  answers for this question? " << endl;
@@ -427,8 +405,8 @@ public:
 					cout << "Is this answer correct? Y/N ";
 					//cin >> buffer;
 					getline(cin, buffer);
-	
-					
+
+
 					if ((buffer == "Y" || buffer == "y"))
 					{
 						question.CorrectAnswer = question.Answers[i];
@@ -437,8 +415,8 @@ public:
 				}
 				cout << endl;
 			}
-		
-	
+
+
 		int index = 1;
 		int place;
 		while (index < 4)
@@ -465,7 +443,7 @@ public:
 	// Displays the question and answer(s)
 	virtual void Display()
 	{
-		
+
 		cout << question.Question << endl;
 		for (int i = 1; i < 5; i++)
 		{
@@ -480,7 +458,7 @@ public:
 					break;
 				}
 			}
-		
+
 	}
 	virtual bool Answer()
 	{

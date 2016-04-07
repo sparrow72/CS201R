@@ -32,11 +32,13 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Menu.hpp" />
+		<Unit filename="Question.cpp" />
 		<Unit filename="Question.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

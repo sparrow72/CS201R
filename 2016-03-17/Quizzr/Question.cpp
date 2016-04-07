@@ -104,10 +104,12 @@ bool MultipleChoice::Answer()
         if(item.IsCorrect(correct) == true)
         {
             cout << "Correct " << endl;
+            return true;
         }
         else
         {
             cout << "Incorrect " << endl;
+            return false;
         }
 
 }
