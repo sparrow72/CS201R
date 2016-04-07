@@ -78,9 +78,6 @@ void CreateQuestion(vector<IQuestion*>& questions)
     else if ( questionTypes[ choice ].key == "MULTI_CHOICE" )
     {
         question = new MultipleChoice;
-        question->CreateQuestion();
-        question->Answer();
-        question->Display();
     }
     else if ( questionTypes[ choice ].key == "MULTI_ANSWER" )
     {

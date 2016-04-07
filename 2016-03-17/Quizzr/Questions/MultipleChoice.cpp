@@ -10,15 +10,7 @@ MultipleChoice::MultipleChoice()
     string m_answers[4] = " ";
     int NumQuestions = 0;
 }
-void MultipleChoice::SetQuestion(string question)
-{
-    m_question = question;
-}
-void MultipleChoice::SetAnswers(string answers, int index)
-{
-    // answers[index] is a character because answers is a string.
-    //m_answers = answers[index];
-}
+
 string MultipleChoice::GetQuestion()
 {
     return m_question;
@@ -29,107 +21,60 @@ string MultipleChoice::GetAnswers(int index)
 }
 void MultipleChoice::CreateQuestion()
 {
-    bool done = false;
-    while(!done)
-    {
-        cout << "1. Add Question " << endl;
-        cout << "2. Save and quit " << endl;
+        string Question;
+        cout << "Question: ";
+        cin.ignore();
+        getline(cin,Question);
+        m_question = Question;
 
-        int choice;
-        cin >> choice;
-        while(choice !=1 || choice != 2)
-        {
-            cout << "Invalid option. Choose again: ";
-            cin >> choice;
-        }
-        if(choice == 1)
-        {
-            // You're already writing a function for inside the
-            // MultipleChoice class; you don't need to create
-            // a MultipleChoice inside of MultipleChoice in this case.
-            // MULTIPLE-CHOICE-INCEPTION!
-            MultipleChoice question;
-            string Quest;
+        int index;
+        string answers;
 
-            cout << "Question: ";
-            getline(cin,Quest);
+        for(int i = 0; i < 4; i++)
+            {
+            cout << "Answer " << i + 1 << ": ";
+            getline(cin, answers);
+            m_answers[i] = answers;
+            }
+            cout << "Correct Answer: ";
+            cin >> index;
+            while(index < 1 || index > 5)
+            {
+                cout << "Invalid option. Choose again: ";
+               cin >> index;
+           }
+           m_correct = m_answers[index-1];
 
-            question.SetQuestion(Quest);
+        NumQuestions++;
 
-             int index;
-            string answers;
-
-            for(int i = 0; i < 4; i++)
-                {
-                cout << "Answer " << i + 1 << ": ";
-                getline(cin, answers);
-                question.SetAnswers(answers, i);
-                }
-
-                int answer;
-                cout << "Correct Answer: ";
-                cin >> index;
-                //question.CorrectAnswer(index-1);
-//                while(Answer < 0 || Answer > 4)
-//                {
-//                    cout << "Invalid option. Choose again: ";
-//                    cin >> Answer;
-//                }
-
-
-            NumQuestions++;
-        }
-        else if(choice == 2)
-        {
-            done = true;
-        }
-
-    }
 }
+
 void MultipleChoice::Display()
 {
-    MultipleChoice item[NumQuestions];
-    int correct;
-
-//    for(int i = 0; i < NumQuestions; i
-//    {
-//        cout << item[i].GetQuestion() << endl;;
-//        for(int j=0; j < 4; j++)
-//        {
-//            cout << "\t" << item[i].GetAnswers(j) << endl;;
-//        }
-//
-//    }
+    cout << m_question << endl;;
+    for(int j=0; j < 4; j++)
+    {
+        cout << j+1 << " \t" << m_answers[j] << endl;;
+    }
 }
 bool MultipleChoice::Answer()
 {
-//    MultipleChoice item;
-//    cout << "What is the correct answer? " << endl;
-//    cin >> correct;
-//
-//    if(item.IsCorrect(correct) == true)
-//    {
-//        cout << "Correct " << endl;
-//        return true;
-//    }
-//    else
-//    {
-//        cout << "Incorrect " << endl;
-//        return false;
-//    }
-}
-bool MultipleChoice::IsCorrect(int answer)
-{
-    // since m_question is a string,
-    // getting a subscript of a string
-    // will give you a char
-//    if(m_question[answer] == m_correct)
-//    {
-//        return true;
-//    }
-//    return false;
-}
-void MultipleChoice::CorrectAnswer(int index)
-{
-    m_correct = m_question[index];
+    int correct;
+    cout << "What is the correct answer? " << endl;
+        cin >> correct;
+        while(correct < 1 || correct > 5 )
+        {
+            cout << "Invalid option, choose again: ";
+            cin >> correct;
+        }
+    if(m_correct == m_answers[correct-1])
+    {
+        cout << "Correct " << endl;
+        return true;
+    }
+    else
+    {
+       cout << "Incorrect " << endl;
+        return false;
+    }
 }

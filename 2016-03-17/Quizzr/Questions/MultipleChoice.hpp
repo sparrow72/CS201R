@@ -13,12 +13,8 @@ private:
 
 public:
 	MultipleChoice();
-	void SetQuestion(string question);
-	void SetAnswers(string answers, int index);
 	string GetQuestion();
 	string GetAnswers(int index);
-	bool IsCorrect(int answer);
-	void CorrectAnswer(int index);
 
 	virtual void CreateQuestion();
 	virtual void Display();
