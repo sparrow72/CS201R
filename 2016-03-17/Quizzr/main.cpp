@@ -3,7 +3,14 @@
 using namespace std;
 
 #include "Menu.hpp"
-#include "Question.hpp"
+#include "Questions/IQuestion.hpp"
+#include "Questions/Essay.hpp"
+#include "Questions/FillInTheBlank.hpp"
+#include "Questions/MultipleAnswer.hpp"
+#include "Questions/MultipleChoice.hpp"
+#include "Questions/Ordering.hpp"
+#include "Questions/ThreeBlanks.hpp"
+#include "Questions/TrueFalse.hpp"
 
 void CreateQuestion(vector<IQuestion*>& questions);
 void RunQuiz(vector<IQuestion*>& questions);
@@ -48,7 +55,6 @@ int main()
 
 void CreateQuestion(vector<IQuestion*>& questions)
 {
-<<<<<<< HEAD
     MenuOption questionTypes[] = {
         MenuOption( "TRUE_FALSE", "True/False" ),
         MenuOption( "MULTI_CHOICE", "Multiple Choice" ),
@@ -118,66 +124,6 @@ void CreateQuestion(vector<IQuestion*>& questions)
         question->CreateQuestion();
         questions.push_back( question );
     }
-=======
-	MenuOption questionTypes[] = {
-		MenuOption("TRUE_FALSE", "True/False"),
-		MenuOption("MULTI_CHOICE", "Multiple Choice"),
-		MenuOption("MULTI_ANSWER", "Multiple Answer"),
-		MenuOption("BLANK", "Fill in the blank"),
-		MenuOption("ESSAY", "Essay"),
-		MenuOption("ORDER", "Ordering"),
-		MenuOption("BLANK3", "Fill in 3")
-	};
-
-	Menu::ClearScreen();
-	Menu::Header("QUESTION TYPE");
-	Menu::ShowMenu(questionTypes, 7);
-	int choice = Menu::GetValidChoice("What kind of question do you want to create?", 1, 7) - 1;
-
-	IQuestion* question = NULL;
-	if (questionTypes[choice].key == "TRUE_FALSE")
-	{
-		//question = new TrueFalse;
-	}
-	else if (questionTypes[choice].key == "MULTI_CHOICE")
-	{
-		//question = new MultipleChoice;
-	}
-	else if (questionTypes[choice].key == "MULTI_ANSWER")
-	{
-		//question = new MultipleAnswer;
-	}
-	else if (questionTypes[choice].key == "BLANK")
-	{
-		question = new FillInTheBlank;
-	}
-	else if (questionTypes[choice].key == "ESSAY")
-	{
-		//question = new Essay;
-	}
-	else if (questionTypes[choice].key == "ORDER")
-	{
-		//question = new Ordering;
-	}
-	else if (questionTypes[choice].key == "BLANK3")
-	{
-		//question = new ThreeBlanks;
-	}
-
-
-	if (question == NULL)
-	{
-		cout << "Error: Did not create a question type." << endl;
-		Menu::Pause();
-	}
-	else
-	{
-		question->CreateQuestion();
-		questions.push_back(question);
-		cout << "Question added" << endl;
-		Menu::Pause();
-	}
->>>>>>> 2f4f17bf65f40016d65ccaa437646b207610ffa7
 }
 
 void RunQuiz(vector<IQuestion*>& questions)

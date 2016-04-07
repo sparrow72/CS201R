@@ -103,37 +103,20 @@ void MultipleChoice::Display()
 }
 bool MultipleChoice::Answer()
 {
-    MultipleChoice item;
-<<<<<<< HEAD:2016-03-17/Quizzr/Question.cpp
-    cout << "What is the correct answer? " << end;
-    cin >> correct;
-
-        if(item.IsCorrect(correct) == true)
-        {
-            cout << "Correct " << endl;
-            return true;
-        }
-        else
-        {
-            cout << "Incorrect " << endl;
-            return false;
-        }
-=======
-    cout << "What is the correct answer? " << endl;
-
-    // correct was not defined in this scope
+//    MultipleChoice item;
+//    cout << "What is the correct answer? " << endl;
 //    cin >> correct;
 //
 //    if(item.IsCorrect(correct) == true)
 //    {
 //        cout << "Correct " << endl;
+//        return true;
 //    }
 //    else
 //    {
 //        cout << "Incorrect " << endl;
+//        return false;
 //    }
->>>>>>> 2f4f17bf65f40016d65ccaa437646b207610ffa7:2016-03-17/Quizzr/Questions/MultipleChoice.cpp
-
 }
 bool MultipleChoice::IsCorrect(int answer)
 {
