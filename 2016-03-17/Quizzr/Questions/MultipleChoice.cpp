@@ -1,4 +1,5 @@
-#include "Question.hpp"
+#include "MultipleChoice.hpp"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -15,7 +16,8 @@ void MultipleChoice::SetQuestion(string question)
 }
 void MultipleChoice::SetAnswers(string answers, int index)
 {
-    m_answers = answers[index];
+    // answers[index] is a character because answers is a string.
+    //m_answers = answers[index];
 }
 string MultipleChoice::GetQuestion()
 {
@@ -42,6 +44,10 @@ void MultipleChoice::CreateQuestion()
         }
         if(choice == 1)
         {
+            // You're already writing a function for inside the
+            // MultipleChoice class; you don't need to create
+            // a MultipleChoice inside of MultipleChoice in this case.
+            // MULTIPLE-CHOICE-INCEPTION!
             MultipleChoice question;
             string Quest;
 
@@ -63,12 +69,12 @@ void MultipleChoice::CreateQuestion()
                 int answer;
                 cout << "Correct Answer: ";
                 cin >> index;
-                question.CorrectAnswer(index-1);
-                while(index < 1 || index > 5)
-                {
-                    cout << "Invalid option. Choose again: ";
-                    cin >> index;
-                }
+                //question.CorrectAnswer(index-1);
+//                while(Answer < 0 || Answer > 4)
+//                {
+//                    cout << "Invalid option. Choose again: ";
+//                    cin >> Answer;
+//                }
 
 
             NumQuestions++;
@@ -85,19 +91,20 @@ void MultipleChoice::Display()
     MultipleChoice item[NumQuestions];
     int correct;
 
-    for(int i = 0; i < NumQuestions; i
-    {
-        cout << item[i].GetQuestion() << endl;;
-        for(int j=0; j < 4; j++)
-        {
-            cout << "\t" << item[i].GetAnswers(j) << endl;;
-        }
-
-    }
+//    for(int i = 0; i < NumQuestions; i
+//    {
+//        cout << item[i].GetQuestion() << endl;;
+//        for(int j=0; j < 4; j++)
+//        {
+//            cout << "\t" << item[i].GetAnswers(j) << endl;;
+//        }
+//
+//    }
 }
 bool MultipleChoice::Answer()
 {
     MultipleChoice item;
+<<<<<<< HEAD:2016-03-17/Quizzr/Question.cpp
     cout << "What is the correct answer? " << end;
     cin >> correct;
 
@@ -111,64 +118,35 @@ bool MultipleChoice::Answer()
             cout << "Incorrect " << endl;
             return false;
         }
+=======
+    cout << "What is the correct answer? " << endl;
+
+    // correct was not defined in this scope
+//    cin >> correct;
+//
+//    if(item.IsCorrect(correct) == true)
+//    {
+//        cout << "Correct " << endl;
+//    }
+//    else
+//    {
+//        cout << "Incorrect " << endl;
+//    }
+>>>>>>> 2f4f17bf65f40016d65ccaa437646b207610ffa7:2016-03-17/Quizzr/Questions/MultipleChoice.cpp
 
 }
 bool MultipleChoice::IsCorrect(int answer)
 {
-    if(m_question[answer] == m_correct)
-    {
-        return true;
-    }
-    return false;
+    // since m_question is a string,
+    // getting a subscript of a string
+    // will give you a char
+//    if(m_question[answer] == m_correct)
+//    {
+//        return true;
+//    }
+//    return false;
 }
 void MultipleChoice::CorrectAnswer(int index)
 {
     m_correct = m_question[index];
 }
-
-/*void ThreeBlanks::CreateQuestion() {
-	cout << "Please enter the question below: " << endl;
-	getline(cin, m_question);
-	cout << endl;
-	cout << "Enter the 3 answers" << endl;
-	cout << "A1. ";
-	getline(cin, m_a1);
-	cout << endl;
-	cout << "A2. ";
-	getline(cin, m_a2);
-	cout << endl;
-	cout << "A3. ";
-	getline(cin, m_a3);
-	cout << endl;
-}
-
-void ThreeBlanks::Display() {
-	cout << m_question;
-}
-
-bool ThreeBlanks::Answer() {
-	cout << "Provide each question below." << endl;
-	cout << "A1. ";
-	getline(cin, m_r1);
-	cout << endl;
-	cout << "A2. ";
-	getline(cin, m_r2);
-	cout << endl;
-	cout << "A3. ";
-	getline(cin, m_r3);
-	cout << endl;
-
-	if (m_a1 != m_r1) {
-		return false;
-	}
-	else if (m_a2 != m_r2) {
-		return false;
-	}
-	else if (m_a3 != m_r2) {
-		return false;
-	}
-	else {
-		return true;
-	}
-}
-
