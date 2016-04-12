@@ -22,5 +22,7 @@ int main()
     cout << "Cat at " << index1 << endl;
     cout << "Skunk at " << index2 << endl;
 
+    cout << "End" << endl;
+
     return 0;
 }
