@@ -6,31 +6,22 @@ using namespace std;
 
 int main()
 {
-    string dogBreeds = {
-        "corgi", "labrador", "bulldog", "beagle", "poodle", "boxer"
-        };
+	string dogBreeds = { "corgi labrador bulldog beagle poodle boxer" };
 
-    string searchFor;
-    cout << "Search for what term? ";
-    cin >> searchFor;
+	string searchFor;
+	cout << "Search for what term? ";
+	cin >> searchFor;
 
-    int foundIndex = -1;
-    for ( int i = 0; i < 6; i++ )
-    {
-        if ( dogBreeds[i] == searchFor )
-        {
-            foundIndex = i;
-        }
-    }
+	size_t found = dogBreeds.find(searchFor);
+	if (found != string::npos)
 
-    if ( foundIndex == -1 )
-    {
-        cout << "Not found" << endl;
-    }
-    else
-    {
-        cout << "Found" << endl;
-    }
-
-    return 0;
+	{
+		cout << "Found" << endl;
+	}
+	else
+	{
+		cout << "Not found" << endl;
+	}
+	system("pause");
+	return 0;
 }
