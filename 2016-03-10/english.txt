@@ -1,5 +1,0 @@
-PROGRAM TITLE
-Social Wall
-
-VERSION NUMBER
-2.0

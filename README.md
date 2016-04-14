@@ -1,2 +1,3 @@
-# CS201R
-Repository for in-class group projects
+CS 201 R
+
+In-class group projects
